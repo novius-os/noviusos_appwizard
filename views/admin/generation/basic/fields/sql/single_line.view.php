@@ -1,0 +1,1 @@
+`<?= $model['column_prefix'].$field['name'] ?>` varchar(255) NOT NULL,

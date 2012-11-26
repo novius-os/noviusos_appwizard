@@ -1,0 +1,1 @@
+`<?= $model['column_prefix'].$field['name'] ?>` tinyint(1) NOT NULL DEFAULT '0',

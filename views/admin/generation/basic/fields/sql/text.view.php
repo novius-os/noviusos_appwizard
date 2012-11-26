@@ -1,0 +1,1 @@
+`<?= $model['column_prefix'].$field['name'] ?>` text,
