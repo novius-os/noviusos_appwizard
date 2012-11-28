@@ -1,30 +1,36 @@
 <form method="post" id="<?= $form_id = uniqid('appwizard_') ?>" action="admin/noviusos_appwizard/application/generate">
-    <?= render('nos::form/expander', array(
-            'title' => __('General application settings'),
-            'content' => render('noviusos_appwizard::admin/form/basic/application_settings')), false)
-    ?>
-
-    <?= render('nos::form/expander', array(
-            'title' => __('Models'),
-            'content' => render('noviusos_appwizard::admin/form/basic/models', array('config' => $config), false)), false);
-    ?>
-    <input type="submit" value="<?= __('Generate') ?>" />
+    <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
+        <ul style="width: 15%;">
+            <li><a href="#general_application_settings"><?= __('1. Main settings') ?></a></li>
+            <li><a href="#compile"><?= __('2. Compile') ?></a></li>
+        </ul>
+        <div id="general_application_settings">
+            <?= render('nos::form/expander', array(
+                    'title' => __('General application settings'),
+                    'content' => render('noviusos_appwizard::admin/form/basic/application_settings', false),
+                ), false); ?>
+            <?= render('noviusos_appwizard::admin/form/basic/models', array('config' => $config)) ?>
+        </div>
+        <div id="compile">
+            <button><?= __('Compile') ?></button>
+        </div>
+    </div>
 </form>
 
 
-
-
 <style type="text/css">
-    .models_list .model, .categories_list .category, .categories {
-        border: 1px solid grey;
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-
     .models_list .field_item {
         border: 1px solid grey;
         padding: 10px;
         margin-bottom: 15px;
+    }
+
+    .crud_options {
+        margin-left: 20px;
+    }
+
+    .crud_options.inactive, .crud_other_options.inactive {
+        display: none;
     }
 </style>
 
@@ -33,27 +39,35 @@
     var templates = {};
     templates['model'] = <?= json_encode(render('noviusos_appwizard::admin/form/basic/model', array('config' => $config), false)) ?>;
     templates['field'] = <?= json_encode(render('noviusos_appwizard::admin/form/basic/field', array('config' => $config), false)) ?>;
+    templates['categories'] = <?= json_encode(render('noviusos_appwizard::admin/form/basic/categories', array('config' => $config), false)) ?>;
     templates['category'] = <?= json_encode(render('noviusos_appwizard::admin/form/basic/category', array('config' => $config), false)) ?>;
-    templates['fields'] = {};
-
-<?php
-foreach ($config['fields'] as $key => $field) {
-    echo 'templates[\'fields\'][\''.$key.'\'] = '.json_encode(render($config['form_path'].'/fields/'.$key)).";\n";
-}
-?>
+    templates['fields'] = <?= json_encode(render('noviusos_appwizard::admin/form/basic/fields', array('config' => $config), false)) ?>;
 
     require(
             [
-                'jquery-nos'
+                'jquery-nos',
+                'wijmo.wijtabs'
             ],
             function($) {
                 var $form = $('#<?= $form_id ?>');
                 $form.nosFormAjax();
+                $form.nosFormUI();
+                var $tabs = $form.find('.tabs');
+                $tabs.css('display', 'block').nosOnShow();
+                $tabs.wijtabs({
+                    alignment: 'left'
+                });
+                $tabs.find('> div').addClass('fill-parent').css({
+                    left: '15%',
+                    width : '85%'
+                });
+
+                var $tabsMenu = $form.find('.tabs > ul');
+
+
                 $form.submit(function(e) {
                     processInputList($(this), 'input, select');
                 });
-
-                $form.nosFormUI();
 
 
                 $form.find('.add_model').click(function(e) {
@@ -61,22 +75,91 @@ foreach ($config['fields'] as $key => $field) {
                     addModel($(this));
                 });
 
-                function refreshCategories($el) {
-                    var $form = $el.closest('.model');
-                    var $categoriesName = $form.find('.categories_list .category_name');
-                    var options = '';
-                    $categoriesName.each(function(i) {
-                        options += '<option value="' + i + '">' + $(this).val() + '</option>';
+                var i = 0;
+
+                function addModel($el) {
+                    var $models = $el.closest('.models');
+                    var $modelsList = $models.find('.models_list');
+
+                    var $modelContent = $(templates['model']);
+                    $modelsList.append($modelContent);
+                    $modelContent.nosFormUI();
+
+                    var fieldLayoutId = 'field_layout_' + i;
+
+                    $modelContent.find('.model_name').keyup(function() {
+                        refreshWizard($(this));
                     });
 
 
-                    var $categorySelects = $el.closest('.model').find('.model_fields_list .category_type');
-                    $categorySelects.each(function() {
+
+                    var $fieldLayout = $('<div class="field_layout"></div>', i);
+                    $fieldLayout.attr('id', fieldLayoutId);
+                    $fieldLayout.data('modelId', i);
+                    $fieldLayout.html(templates['categories']);
+                    $fieldLayout.appendTo($tabs);
+                    $fieldLayout.nosFormUI();
+
+                    $tabs.wijtabs('add', '#' + fieldLayoutId, 'field_layout', i + 1);
+
+                    $fieldLayout.find('.add_category').click(function(e) {
+                        e.preventDefault();
                         var $this = $(this);
-                        var previousVal = $this.val();
-                        $this.html(options);
-                        $this.val(previousVal);
+                        addCategory($this);
+                        refreshWizard($this);
+                        refreshCategories($this);
                     });
+
+                    $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][fields]');
+
+
+
+                    var fieldsId = 'fields_' + i;
+
+                    var $fields = $('<div class="fields"></div>');
+                    $fields.attr('id', fieldsId);
+                    $fields.data('modelId', i);
+                    $fields.html(templates['fields']);
+                    $fields.appendTo($tabs);
+                    $fields.nosFormUI();
+
+                    $tabs.wijtabs('add', '#' + fieldsId, 'fields', i + 2);
+
+                    $fields.find('.add_field').click(function(e) {
+                        e.preventDefault();
+                        var $this = $(this);
+                        addField($this);
+                        refreshWizard($this);
+                        refreshCategories($this);
+                    });
+
+                    $fields.find('.model_fields').data('key', 'models[' + i + '][categories]');
+
+
+                    refreshWizard($el);
+
+                    i++;
+                }
+
+                function refreshWizard($el) {
+                    //return;
+                    var $menuItems = $tabsMenu.find('li a');
+                    var $modelNames = $form.find('.model_name');
+                    $modelNames.each(function(i) {
+                        var $this = $(this);
+                        var $menuFieldsLayoutItem = $($menuItems[i * 2 + 1]);
+                        var $menuFieldsItem = $($menuItems[i * 2 + 2]);
+                        if ($modelNames.length > 1) {
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('{num}. ({modelName}) Fields layout')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('{num}. ({modelName}) Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                        } else {
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('{num}. Fields layout')) ?>.replace('{num}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('{num}. Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                        }
+                    });
+                    var $menuFieldsCompile = $($menuItems[$modelNames.length  * 2 + 1]);
+                    console.log($menuFieldsCompile[0]);
+                    $menuFieldsCompile.text(<?= json_encode(__('{num}. Compile')) ?>.replace('{num}', $modelNames.length * 2 + 2));
                 }
 
                 function addCategory($el) {
@@ -92,33 +175,49 @@ foreach ($config['fields'] as $key => $field) {
                     });
                 }
 
-                function addModel($el) {
-                    var $models = $el.closest('.models');
-                    var $modelsList = $models.find('.models_list');
-
-                    var $modelContent = $(templates['model']);
-                    $modelsList.append($modelContent);
-                    $modelContent.nosFormUI();
-                    $modelContent.find('.add_field').click(function(e) {
-                        e.preventDefault();
-                        addField($(this));
-                    });
-
-                    $modelContent.find('.add_category').click(function(e) {
-                        e.preventDefault();
-                        var $this = $(this);
-                        addCategory($this);
-                        refreshCategories($this);
-                    });
-                }
-
                 function addField($el) {
                     var $fieldList = $el.closest('.model_fields').find('.model_fields_list');
                     var $fieldContent = $(templates['field']);
                     $fieldList.append($fieldContent);
                     $fieldContent.nosFormUI();
+
+                    $fieldList.find('.crud_options').addClass('inactive');
+
+                    $fieldContent.find('.is_on_crud_checkbox').change(function() {
+                        var $this = $(this);
+                        var $crudOptions = $this.closest('.field_item').find('.crud_options');
+                        $this.is(':checked') ? $crudOptions.removeClass('inactive') : $crudOptions.addClass('inactive');
+                    });
+
+                    $fieldContent.find('.is_title_checkbox').change(function() {
+                        var $this = $(this);
+                        var $crudOptions = $this.closest('.field_item').find('.crud_other_options');
+                        $this.is(':checked') ? $crudOptions.addClass('inactive') : $crudOptions.removeClass('inactive');
+                    });
+                    refreshWizard($el);
                     refreshCategories($el);
                 }
+
+
+                function refreshCategories($el) {
+                    var $form = $el.closest('.field_layout, .fields');
+                    var formId = $form.data('modelId');
+                    var $categoriesName = $('#field_layout_' + formId).find('.categories_list .category_name');
+                    var options = '';
+                    $categoriesName.each(function(i) {
+                        options += '<option value="' + i + '">' + $(this).val() + '</option>';
+                    });
+
+                    var $categorySelects = $('#fields_' + formId).find('.model_fields_list .category_type');
+
+                    $categorySelects.each(function() {
+                        var $this = $(this);
+                        var previousVal = $this.val();
+                        $this.html(options);
+                        $this.val(previousVal);
+                    });
+                }
+
 
                 /* @todo: can be heavily optimized */
                 function processInputList($el, inputSelector) {

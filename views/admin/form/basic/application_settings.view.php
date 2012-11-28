@@ -1,3 +1,4 @@
+
 <div class="labelled_input">
     <label>
         <?= __('Application name') ?>
