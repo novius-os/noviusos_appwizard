@@ -36,40 +36,44 @@ return array(
                 'data' => array('data' => $data, 'config' => $config),
             );
 
-            foreach ($data['models'] as $model) {
-                mkdir($root_dir.'/classes/controller/admin/'.strtolower($model['name']));
-                mkdir($root_dir.'/config/controller/admin/'.strtolower($model['name']));
-                $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
-                $files[] = array(
-                    'template' => 'classes/controller/admin/appdesk.ctrl.php',
-                    'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
-                    'data' => $model_data,
-                );
-                $files[] = array(
-                    'template' => 'classes/controller/admin/crud.ctrl.php',
-                    'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
-                    'data' => $model_data,
-                );
-                $files[] = array(
-                    'template' => 'classes/model/model.model.php',
-                    'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
-                    'data' => $model_data,
-                );
-                $files[] = array(
-                    'template' => 'config/common/model.config.php',
-                    'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
-                    'data' => $model_data,
-                );
-                $files[] = array(
-                    'template' => 'config/controller/admin/appdesk.config.php',
-                    'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
-                    'data' => $model_data,
-                );
-                $files[] = array(
-                    'template' => 'config/controller/admin/crud.config.php',
-                    'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
-                    'data' => $model_data,
-                );
+            if (isset($data['models'])) {
+                foreach ($data['models'] as $model) {
+                    mkdir($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
+                    chmod($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
+                    mkdir($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
+                    chmod($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
+                    $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
+                    $files[] = array(
+                        'template' => 'classes/controller/admin/appdesk.ctrl.php',
+                        'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
+                        'data' => $model_data,
+                    );
+                    $files[] = array(
+                        'template' => 'classes/controller/admin/crud.ctrl.php',
+                        'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
+                        'data' => $model_data,
+                    );
+                    $files[] = array(
+                        'template' => 'classes/model/model.model.php',
+                        'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
+                        'data' => $model_data,
+                    );
+                    $files[] = array(
+                        'template' => 'config/common/model.config.php',
+                        'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
+                        'data' => $model_data,
+                    );
+                    $files[] = array(
+                        'template' => 'config/controller/admin/appdesk.config.php',
+                        'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
+                        'data' => $model_data,
+                    );
+                    $files[] = array(
+                        'template' => 'config/controller/admin/crud.config.php',
+                        'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
+                        'data' => $model_data,
+                    );
+                }
             }
 
             return $files;

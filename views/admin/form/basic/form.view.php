@@ -9,10 +9,23 @@
                     'title' => __('General application settings'),
                     'content' => render('noviusos_appwizard::admin/form/basic/application_settings', false),
                 ), false); ?>
+            <hr />
             <?= render('noviusos_appwizard::admin/form/basic/models', array('config' => $config)) ?>
         </div>
         <div id="compile">
-            <button><?= __('Compile') ?></button>
+            <?= render('nos::form/expander', array(
+                    'title' => __('Generation options'),
+                    'content' => render('noviusos_appwizard::admin/form/basic/generate_options', false),
+                ), false); ?>
+            <button><?= __('Generate') ?></button>
+            <div class="installation_successful">
+                <h2>
+                    <?= __('Installation successful !') ?>
+                </h2>
+                <div class="sql">
+                    <?= __('Sql installation file is located at install.sql.') ?>
+                </div>
+            </div>
         </div>
     </div>
 </form>
@@ -31,6 +44,30 @@
 
     .crud_options.inactive, .crud_other_options.inactive {
         display: none;
+    }
+
+    .installation_successful {
+        margin: 20px;
+        margin-top: 35px;
+        padding: 10px;
+        display: none;
+    }
+
+    .installation_successful.done {
+        display: block;
+    }
+
+    .installation_successful h2 {
+        font-size: 20px;
+    }
+
+    .installation_successful .sql {
+        margin-top: 5px;
+    }
+
+    #general_application_settings hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 </style>
 
@@ -51,6 +88,9 @@
             function($) {
                 var $form = $('#<?= $form_id ?>');
                 $form.nosFormAjax();
+                $form.bind('ajax_success', function() {
+                    $(this).find('.installation_successful').addClass('done');
+                });
                 $form.nosFormUI();
                 var $tabs = $form.find('.tabs');
                 $tabs.css('display', 'block').nosOnShow();
@@ -59,7 +99,8 @@
                 });
                 $tabs.find('> div').addClass('fill-parent').css({
                     left: '15%',
-                    width : '85%'
+                    width : '85%',
+                    overflow: 'auto'
                 });
 
                 var $tabsMenu = $form.find('.tabs > ul');
@@ -110,7 +151,7 @@
                         refreshCategories($this);
                     });
 
-                    $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][fields]');
+                    $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][categories]');
 
 
 
@@ -133,7 +174,7 @@
                         refreshCategories($this);
                     });
 
-                    $fields.find('.model_fields').data('key', 'models[' + i + '][categories]');
+                    $fields.find('.model_fields').data('key', 'models[' + i + '][fields]');
 
 
                     refreshWizard($el);
@@ -158,7 +199,6 @@
                         }
                     });
                     var $menuFieldsCompile = $($menuItems[$modelNames.length  * 2 + 1]);
-                    console.log($menuFieldsCompile[0]);
                     $menuFieldsCompile.text(<?= json_encode(__('{num}. Compile')) ?>.replace('{num}', $modelNames.length * 2 + 2));
                 }
 

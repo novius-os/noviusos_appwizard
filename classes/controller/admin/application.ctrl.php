@@ -19,7 +19,7 @@ class Controller_Admin_Application extends \Nos\Controller_Admin_Application
 
     public function action_generate()
     {
-        Application_Generator::generate($this->config['basic'], \Input::post());
-        \Response::json(array('notify' => __('Generation successful')));
+        $application_informations = Application_Generator::generate($this->config['basic'], \Input::post());
+        \Response::json(array('notify' => __('Generation successful'), 'application_informations' => $application_informations));
     }
 }

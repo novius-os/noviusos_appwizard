@@ -19,9 +19,17 @@ class Application_Generator
         if (file_exists($root_dir)) {
             throw new \Exception('Folder already exists!');
         }
-        mkdir($root_dir);
+        mkdir($root_dir, 0777);
+        chmod($root_dir, 0777);
         static::generateFolders($root_dir, $config['folders']);
         static::generateFiles($root_dir, $config, $input);
+        if ($input['generation_options']['install']) {
+            $sql = file_get_contents($root_dir.'/install.sql');
+            \DB::query($sql);
+            $application = \Nos\Application::forge($input['application_settings']['folder']);
+            $application->install();
+        }
+        return array();
     }
 
     public static function indent($pre, $str)
@@ -36,7 +44,8 @@ class Application_Generator
     protected static function generateFolders($root_dir, $folders)
     {
         foreach ($folders as $folder) {
-            mkdir($root_dir.'/'.$folder);
+            mkdir($root_dir.'/'.$folder, 0777);
+            chmod($root_dir.'/'.$folder, 0777);
         }
     }
 
@@ -52,7 +61,7 @@ class Application_Generator
                 );
             }
             file_put_contents($root_dir.'/'.$file['destination'], render($config['generation_path'].'/'.$file['template'], $file['data'], false));
-            chmod($root_dir.'/'.$file['destination'], 0777);
+            chmod($root_dir.'/'.$file['destination'], 0666);
         }
     }
 }
