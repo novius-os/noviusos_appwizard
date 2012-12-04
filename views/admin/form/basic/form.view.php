@@ -171,9 +171,10 @@
 
                     $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][categories]');
 
+                    var ni = i;
                     $fieldLayout.find('.next_step').click(function(e) {
                         e.preventDefault();
-                        $tabs.wijtabs('select', i + 1);
+                        $tabs.wijtabs('select', ni * 2 + 2);
                     });
 
 
@@ -199,9 +200,10 @@
 
                     $fields.find('.model_fields').data('key', 'models[' + i + '][fields]');
 
+                    var ni = i;
                     $fields.find('.next_step').click(function(e) {
                         e.preventDefault();
-                        $tabs.wijtabs('select', i + 2);
+                        $tabs.wijtabs('select', ni * 2 + 3);
                     });
 
 
