@@ -2,7 +2,7 @@
     <div class="category_information">
         <div class="labelled_input">
             <label>
-                <?= __('Name:') ?>
+                <?= __('Name (ex: Content):') ?>
             </label>
             <input type="text" class="category_name" name="name" />
         </div>

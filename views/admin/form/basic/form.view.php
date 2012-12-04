@@ -1,8 +1,11 @@
+<h1 class="appwizard">
+    <?= __('Build your application') ?>
+</h1>
 <form method="post" id="<?= $form_id = uniqid('appwizard_') ?>" action="admin/noviusos_appwizard/application/generate">
     <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
         <ul style="width: 15%;">
-            <li><a href="#general_application_settings"><?= __('1. Main settings') ?></a></li>
-            <li><a href="#compile"><?= __('2. Compile') ?></a></li>
+            <li><a href="#general_application_settings"><?= __('Step 1. Main settings') ?></a></li>
+            <li><a href="#compile"><?= __('Step 2. Compile') ?></a></li>
         </ul>
         <div id="general_application_settings">
             <?= render('nos::form/expander', array(
@@ -17,7 +20,7 @@
                     'title' => __('Generation options'),
                     'content' => render('noviusos_appwizard::admin/form/basic/generate_options', false),
                 ), false); ?>
-            <button><?= __('Generate') ?></button>
+            <button class="primary"><?= __('Generate') ?></button>
             <div class="installation_successful">
                 <h2>
                     <?= __('Installation successful !') ?>
@@ -69,6 +72,12 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    h1.appwizard {
+        margin-top: 6px;
+        margin-left: 4%;
+        font-size: 18px;
+    }
 </style>
 
 <script type="text/javascript">
@@ -116,6 +125,17 @@
                     addModel($(this));
                 });
 
+                $form.find('#general_application_settings .next_step').click(function(e) {
+                    e.preventDefault();
+                    $tabs.wijtabs('select', 1);
+                });
+
+
+
+                setTimeout(function() {
+                    $form.find('.add_model').click(); /* @todo: find a better solution */
+                }, 250);
+
                 var i = 0;
 
                 function addModel($el) {
@@ -132,8 +152,6 @@
                         refreshWizard($(this));
                     });
 
-
-
                     var $fieldLayout = $('<div class="field_layout"></div>', i);
                     $fieldLayout.attr('id', fieldLayoutId);
                     $fieldLayout.data('modelId', i);
@@ -141,7 +159,7 @@
                     $fieldLayout.appendTo($tabs);
                     $fieldLayout.nosFormUI();
 
-                    $tabs.wijtabs('add', '#' + fieldLayoutId, 'field_layout', i + 1);
+                    $tabs.wijtabs('add', '#' + fieldLayoutId, 'field_layout', i * 2 + 1);
 
                     $fieldLayout.find('.add_category').click(function(e) {
                         e.preventDefault();
@@ -152,6 +170,11 @@
                     });
 
                     $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][categories]');
+
+                    $fieldLayout.find('.next_step').click(function(e) {
+                        e.preventDefault();
+                        $tabs.wijtabs('select', i + 1);
+                    });
 
 
 
@@ -164,7 +187,7 @@
                     $fields.appendTo($tabs);
                     $fields.nosFormUI();
 
-                    $tabs.wijtabs('add', '#' + fieldsId, 'fields', i + 2);
+                    $tabs.wijtabs('add', '#' + fieldsId, 'fields', i * 2 + 2);
 
                     $fields.find('.add_field').click(function(e) {
                         e.preventDefault();
@@ -176,6 +199,11 @@
 
                     $fields.find('.model_fields').data('key', 'models[' + i + '][fields]');
 
+                    $fields.find('.next_step').click(function(e) {
+                        e.preventDefault();
+                        $tabs.wijtabs('select', i + 2);
+                    });
+
 
                     refreshWizard($el);
 
@@ -183,7 +211,6 @@
                 }
 
                 function refreshWizard($el) {
-                    //return;
                     var $menuItems = $tabsMenu.find('li a');
                     var $modelNames = $form.find('.model_name');
                     $modelNames.each(function(i) {
@@ -191,15 +218,15 @@
                         var $menuFieldsLayoutItem = $($menuItems[i * 2 + 1]);
                         var $menuFieldsItem = $($menuItems[i * 2 + 2]);
                         if ($modelNames.length > 1) {
-                            $menuFieldsLayoutItem.text(<?= json_encode(__('{num}. ({modelName}) Fields layout')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 2));
-                            $menuFieldsItem.text(<?= json_encode(__('{num}. ({modelName}) Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {num}. ({modelName}) Fields layout')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('Step {num}. ({modelName}) Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
                         } else {
-                            $menuFieldsLayoutItem.text(<?= json_encode(__('{num}. Fields layout')) ?>.replace('{num}', i * 2 + 2));
-                            $menuFieldsItem.text(<?= json_encode(__('{num}. Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {num}. Fields layout')) ?>.replace('{num}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('Step {num}. Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
                         }
                     });
                     var $menuFieldsCompile = $($menuItems[$modelNames.length  * 2 + 1]);
-                    $menuFieldsCompile.text(<?= json_encode(__('{num}. Compile')) ?>.replace('{num}', $modelNames.length * 2 + 2));
+                    $menuFieldsCompile.text(<?= json_encode(__('Step {num}. Compile')) ?>.replace('{num}', $modelNames.length * 2 + 2));
                 }
 
                 function addCategory($el) {

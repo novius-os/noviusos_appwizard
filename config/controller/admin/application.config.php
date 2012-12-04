@@ -29,9 +29,13 @@ return array(
         ),
         'files' => function($root_dir, $data, $config) {
             $files = array();
-            $files[] = 'config/metadata.config.php';
             $files[] = array(
-                'template' => 'install.sql.php',
+                'template' => 'config/metadata.config',
+                'destination' => 'config/metadata.config.php',
+                'data' => array('data' => $data, 'config' => $config),
+            );
+            $files[] = array(
+                'template' => 'install.sql',
                 'destination' => 'install.sql',
                 'data' => array('data' => $data, 'config' => $config),
             );
@@ -44,32 +48,32 @@ return array(
                     chmod($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
                     $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
                     $files[] = array(
-                        'template' => 'classes/controller/admin/appdesk.ctrl.php',
+                        'template' => 'classes/controller/admin/appdesk.ctrl',
                         'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
                         'data' => $model_data,
                     );
                     $files[] = array(
-                        'template' => 'classes/controller/admin/crud.ctrl.php',
+                        'template' => 'classes/controller/admin/crud.ctrl',
                         'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
                         'data' => $model_data,
                     );
                     $files[] = array(
-                        'template' => 'classes/model/model.model.php',
+                        'template' => 'classes/model/model.model',
                         'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
                         'data' => $model_data,
                     );
                     $files[] = array(
-                        'template' => 'config/common/model.config.php',
+                        'template' => 'config/common/model.config',
                         'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
                         'data' => $model_data,
                     );
                     $files[] = array(
-                        'template' => 'config/controller/admin/appdesk.config.php',
+                        'template' => 'config/controller/admin/appdesk.config',
                         'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
                         'data' => $model_data,
                     );
                     $files[] = array(
-                        'template' => 'config/controller/admin/crud.config.php',
+                        'template' => 'config/controller/admin/crud.config',
                         'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
                         'data' => $model_data,
                     );
@@ -80,10 +84,10 @@ return array(
         },
         'category_types' => array(
             'main' => array(
-                'label' => __('Main view')
+                'label' => __('Main column')
             ),
             'menu' => array(
-                'label' => __('Menu view')
+                'label' => __('Side column')
             ),
         ),
         'fields' => array(

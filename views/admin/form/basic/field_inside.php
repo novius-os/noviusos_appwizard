@@ -1,7 +1,7 @@
 <div class="field_item input_item">
     <div class="labelled_input">
         <label>
-            <?= __('Name') ?>
+            <?= __('Name (ex: title)') ?>
         </label>
         <input type="text" name="name" />
     </div>
