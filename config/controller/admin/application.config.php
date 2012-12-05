@@ -27,61 +27,63 @@ return array(
             'views/admin',
             'views/front'
         ),
-        'files' => function($root_dir, $data, $config) {
-            $files = array();
-            $files[] = array(
-                'template' => 'config/metadata.config',
-                'destination' => 'config/metadata.config.php',
-                'data' => array('data' => $data, 'config' => $config),
-            );
-            $files[] = array(
-                'template' => 'install.sql',
-                'destination' => 'install.sql',
-                'data' => array('data' => $data, 'config' => $config),
-            );
+        'files' =>
+            function($root_dir, $data, $config)
+            {
+                $files = array();
+                $files[] = array(
+                    'template' => 'config/metadata.config',
+                    'destination' => 'config/metadata.config.php',
+                    'data' => array('data' => $data, 'config' => $config),
+                );
+                $files[] = array(
+                    'template' => 'install.sql',
+                    'destination' => 'install.sql',
+                    'data' => array('data' => $data, 'config' => $config),
+                );
 
-            if (isset($data['models'])) {
-                foreach ($data['models'] as $model) {
-                    mkdir($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
-                    chmod($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
-                    mkdir($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
-                    chmod($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
-                    $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
-                    $files[] = array(
-                        'template' => 'classes/controller/admin/appdesk.ctrl',
-                        'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
-                        'data' => $model_data,
-                    );
-                    $files[] = array(
-                        'template' => 'classes/controller/admin/crud.ctrl',
-                        'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
-                        'data' => $model_data,
-                    );
-                    $files[] = array(
-                        'template' => 'classes/model/model.model',
-                        'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
-                        'data' => $model_data,
-                    );
-                    $files[] = array(
-                        'template' => 'config/common/model.config',
-                        'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
-                        'data' => $model_data,
-                    );
-                    $files[] = array(
-                        'template' => 'config/controller/admin/appdesk.config',
-                        'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
-                        'data' => $model_data,
-                    );
-                    $files[] = array(
-                        'template' => 'config/controller/admin/crud.config',
-                        'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
-                        'data' => $model_data,
-                    );
+                if (isset($data['models'])) {
+                    foreach ($data['models'] as $model) {
+                        mkdir($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
+                        chmod($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
+                        mkdir($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
+                        chmod($root_dir.'/config/controller/admin/'.strtolower($model['name']), 0777);
+                        $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
+                        $files[] = array(
+                            'template' => 'classes/controller/admin/appdesk.ctrl',
+                            'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
+                            'data' => $model_data,
+                        );
+                        $files[] = array(
+                            'template' => 'classes/controller/admin/crud.ctrl',
+                            'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
+                            'data' => $model_data,
+                        );
+                        $files[] = array(
+                            'template' => 'classes/model/model.model',
+                            'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
+                            'data' => $model_data,
+                        );
+                        $files[] = array(
+                            'template' => 'config/common/model.config',
+                            'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
+                            'data' => $model_data,
+                        );
+                        $files[] = array(
+                            'template' => 'config/controller/admin/appdesk.config',
+                            'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
+                            'data' => $model_data,
+                        );
+                        $files[] = array(
+                            'template' => 'config/controller/admin/crud.config',
+                            'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
+                            'data' => $model_data,
+                        );
+                    }
                 }
-            }
 
-            return $files;
-        },
+                return $files;
+            },
         'category_types' => array(
             'main' => array(
                 'label' => __('Main column')
