@@ -25,21 +25,23 @@ foreach ($model['fields'] as $field) {
 }
 
 $viewsByCategoryType = array();
-for ($i = 0; $i < count($model['categories']); $i++) {
-    $categoryType = $model['categories'][$i]['type'];
-    if (!isset($viewsByCategoryType[$categoryType])) {
-        $viewsByCategoryType[$categoryType] = array();
+if (isset($model['categories'])) {
+    for ($i = 0; $i < count($model['categories']); $i++) {
+        $categoryType = $model['categories'][$i]['type'];
+        if (!isset($viewsByCategoryType[$categoryType])) {
+            $viewsByCategoryType[$categoryType] = array();
+        }
+        $viewsByCategoryType[$categoryType][] = render(
+            $config['generation_path'].'/misc/categories/'.$categoryType,
+            array(
+                'fields' => isset($fieldsByCategory[$i]) ? $fieldsByCategory[$i] : array(),
+                'model' => $model,
+                'category' => $model['categories'][$i],
+                'config' => $config,
+                'data' => $data
+            )
+        );
     }
-    $viewsByCategoryType[$categoryType][] = render(
-        $config['generation_path'].'/misc/categories/'.$categoryType,
-        array(
-            'fields' => isset($fieldsByCategory[$i]) ? $fieldsByCategory[$i] : array(),
-            'model' => $model,
-            'category' => $model['categories'][$i],
-            'config' => $config,
-            'data' => $data
-        )
-    );
 }
 ?>
 return array(
