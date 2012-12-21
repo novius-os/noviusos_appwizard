@@ -2,8 +2,6 @@
 return array(
     'name'    => 'Application wizard',
     'version' => '0.1',
-    'icon16'  => 'static/apps/noviusos_appwizard/img/icons/appwizard-16.png',
-    'icon64'  => 'static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
     'provider' => array(
         'name' => 'Novius OS',
     ),
@@ -23,8 +21,8 @@ return array(
         ),
     ),
     'icons' => array(
-        64 => '/static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
-        32 => '/static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
         16 => '/static/apps/noviusos_appwizard/img/icons/appwizard-16.png',
+        32 => '/static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
+        64 => '/static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
     ),
 );
