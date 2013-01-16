@@ -1,7 +1,7 @@
 <div class="field_item input_item">
     <div class="labelled_input">
         <label>
-            <?= __('Name (ex: title)') ?>
+            <?= __('Label (e.g. Title)') ?>
         </label>
         <input type="text" name="name" />
     </div>
@@ -19,20 +19,20 @@ foreach ($config['fields'] as $key => $val) {
     </div>
     <div class="labelled_input">
         <label>
-            <?= __('Is on appdesk ?') ?>
+            <?= __('Shows in the main grid of the App Desk') ?>
         </label>
         <input type="checkbox" name="is_on_appdesk" />
     </div>
     <div class="labelled_input">
         <label>
-            <?= __('Is on crud ?') ?>
+            <?= __('Shows in the add/update forms') ?>
         </label>
         <input type="checkbox" name="is_on_crud" class="is_on_crud_checkbox" />
     </div>
     <div class="crud_options">
         <div class="labelled_input">
             <label>
-                <?= __('Is title ?') ?>
+                <?= __('Is the form title') ?>
             </label>
             <input type="checkbox" name="is_title" class="is_title_checkbox" />
         </div>

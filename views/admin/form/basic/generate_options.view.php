@@ -1,6 +1,6 @@
 <div class="labelled_input">
     <label>
-        <?= __('Install application on this instance ?') ?>
+        <?= __('Install the application on this Novius OS?') ?>
     </label>
     <input type="checkbox" name="generation_options[install]" checked/>
 </div>

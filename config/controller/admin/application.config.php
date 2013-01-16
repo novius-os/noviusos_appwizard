@@ -94,13 +94,13 @@ return array(
         ),
         'fields' => array(
             'single_line' => array(
-                'label' => __('Single line'),
+                'label' => __('Single line text'),
             ),
             'wysiwyg' => array(
-                'label' => __('Wysiwyg')
+                'label' => __('WYSIWYG text editor')
             ),
             'text' => array(
-                'label' => __('Text')
+                'label' => __('Paragraph text')
             ),
             'checkbox' => array(
                 'label' => __('Checkbox')

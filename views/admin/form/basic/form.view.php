@@ -4,12 +4,12 @@
 <form method="post" id="<?= $form_id = uniqid('appwizard_') ?>" action="admin/noviusos_appwizard/application/generate">
     <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
         <ul style="width: 15%;">
-            <li><a href="#general_application_settings"><?= __('Step 1. Main settings') ?></a></li>
-            <li><a href="#compile"><?= __('Step 2. Compile') ?></a></li>
+            <li><a href="#general_application_settings"><?= __('Step 1. Main properties') ?></a></li>
+            <li><a href="#compile"><?= __('Step 2. Create') ?></a></li>
         </ul>
         <div id="general_application_settings">
             <?= render('nos::form/expander', array(
-                    'title' => __('General application settings'),
+                    'title' => __('About the application'),
                     'content' => render('noviusos_appwizard::admin/form/basic/application_settings', false),
                 ), false); ?>
             <hr />
@@ -17,16 +17,16 @@
         </div>
         <div id="compile">
             <?= render('nos::form/expander', array(
-                    'title' => __('Generation options'),
+                    'title' => __('Options'),
                     'content' => render('noviusos_appwizard::admin/form/basic/generate_options', false),
                 ), false); ?>
             <button class="primary"><?= __('Generate') ?></button>
             <div class="installation_successful">
                 <h2>
-                    <?= __('Installation successful !') ?>
+                    <?= __('Now that you have a brand new application') ?>
                 </h2>
                 <div class="sql">
-                    <?= __('Sql installation file is located at install.sql.') ?>
+                    <?= __('What is next? Sql installation file is located at install.sql.') ?>
                 </div>
             </div>
         </div>
@@ -220,15 +220,15 @@
                         var $menuFieldsLayoutItem = $($menuItems[i * 2 + 1]);
                         var $menuFieldsItem = $($menuItems[i * 2 + 2]);
                         if ($modelNames.length > 1) {
-                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {num}. ({modelName}) Fields layout')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 2));
-                            $menuFieldsItem.text(<?= json_encode(__('Step {num}. ({modelName}) Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {{num}}. ({{modelName}}) Fields layout')) ?>.replace('{{modelName}}', $this.val()).replace('{{num}}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('Step {{num}}. ({{modelName}}) Fields')) ?>.replace('{{modelName}}', $this.val()).replace('{{num}}', i * 2 + 3));
                         } else {
-                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {num}. Fields layout')) ?>.replace('{num}', i * 2 + 2));
-                            $menuFieldsItem.text(<?= json_encode(__('Step {num}. Fields')) ?>.replace('{modelName}', $this.val()).replace('{num}', i * 2 + 3));
+                            $menuFieldsLayoutItem.text(<?= json_encode(__('Step {{num}}. Fields layout')) ?>.replace('{{num}}', i * 2 + 2));
+                            $menuFieldsItem.text(<?= json_encode(__('Step {{num}}. Fields')) ?>.replace('{{modelName}}', $this.val()).replace('{{num}}', i * 2 + 3));
                         }
                     });
                     var $menuFieldsCompile = $($menuItems[$modelNames.length  * 2 + 1]);
-                    $menuFieldsCompile.text(<?= json_encode(__('Step {num}. Compile')) ?>.replace('{num}', $modelNames.length * 2 + 2));
+                    $menuFieldsCompile.text(<?= json_encode(__('Step {{num}}. Compile')) ?>.replace('{{num}}', $modelNames.length * 2 + 2));
                 }
 
                 function addCategory($el) {
