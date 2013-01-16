@@ -10,5 +10,4 @@
 
 return array(
     '‘Build your app’ wizard' => 'Assistant ‘Créer mon appli’',
-    'Slideshow' => 'Diaporama',
 );

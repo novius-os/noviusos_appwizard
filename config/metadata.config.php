@@ -9,6 +9,7 @@ return array(
     'permission' => array(
 
     ),
+    'i18n_file' => 'noviusos_appwizard::metadata',
     'launchers' => array(
         'noviusos_appwizard' => array(
             'name'    => '‘Build your app’ wizard',
