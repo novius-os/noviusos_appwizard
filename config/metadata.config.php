@@ -1,6 +1,6 @@
 <?php
 return array(
-    'name'    => 'Application wizard',
+    'name'    => '‘Build your app’ wizard',
     'version' => '0.1',
     'provider' => array(
         'name' => 'Novius OS',
@@ -11,7 +11,7 @@ return array(
     ),
     'launchers' => array(
         'noviusos_appwizard' => array(
-            'name'    => 'Application wizard',
+            'name'    => '‘Build your app’ wizard',
             'action' => array(
                 'action' => 'nosTabs',
                 'tab' => array(
