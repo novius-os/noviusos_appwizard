@@ -9,9 +9,9 @@ return array(
     'permission' => array(
     ),
     'icons' => array( //@todo: to be defined
-        64 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/icon-64.png',
-        32 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/icon-32.png',
-        16 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/icon-16.png',
+        64 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/64/icon.png',
+        32 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/32/icon.png',
+        16 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/16/icon.png',
     ),
 <?php
 if (isset($data['models'])) {
@@ -33,26 +33,26 @@ if (isset($data['models'])) {
 
 }
 ?>
-    /* launcher configuration example
+    /* Launcher configuration sample
     'launchers' => array(
         'key' => array( // key must be defined
             'name'    => 'name of the launcher', // displayed name of the launcher
             'action' => array(
                 'action' => 'nosTabs',
                 'tab' => array(
-                    'url' => 'url to load', // url to load
+                    'url' => 'url to load', // URL to load
                 ),
             ),
         ),
     ),
     */
-    /* Enhancer configuration example
+    /* Enhancer configuration sample
     'enhancers' => array(
         'key' => array( // key must be defined
             'title' => 'title',
             'desc'  => '',
-            'urlEnhancer' => '<?= $data['application_settings']['folder'] ?>/front/main', // url of the enhancer
-            'previewUrl' => 'admin/<?= $data['application_settings']['folder'] ?>/application/preview', // url of preview
+            'urlEnhancer' => '<?= $data['application_settings']['folder'] ?>/front/main', // URL of the enhancer
+            'previewUrl' => 'admin/<?= $data['application_settings']['folder'] ?>/application/preview', // URL of preview
             'dialog' => array(
                 'contentUrl' => 'admin/<?= $data['application_settings']['folder'] ?>/application/popup',
                 'width' => 450,
@@ -62,7 +62,7 @@ if (isset($data['models'])) {
         ),
     ),
     */
-    /* Data catcher configuration
+    /* Data catcher configuration sample
     'data_catchers' => array(
         'key' => array( // key must be defined
             'title' => 'title',

@@ -112,7 +112,7 @@ foreach ($model['fields'] as $field) {
             ),
         ),
     )
-    /*
+    /* UI texts sample
     'messages' => array(
         'successfully added' => __('Item successfully added.'),
         'successfully saved' => __('Item successfully saved.'),
@@ -130,11 +130,12 @@ foreach ($model['fields'] as $field) {
     ),
     */
     /*
+    Tab configuration sample
     'tab' => array(
-        'iconUrl' => 'static/apps/{{application_name}}/img/16/post.png',
+        'iconUrl' => 'static/apps/{{application_name}}/img/16/icon.png',
         'labels' => array(
-            'insert' => __('Add a post'),
-            'blankSlate' => __('Translate a post'),
+            'insert' => __('Add a item'),
+            'blankSlate' => __('Translate a item'),
         ),
     ),
     */
