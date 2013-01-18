@@ -16,7 +16,6 @@ return array(
     ),
     'namespace' => 'Nos\AppWizard',
     'permission' => array(
-
     ),
     'i18n_file' => 'noviusos_appwizard::metadata',
     'launchers' => array(
