@@ -7,7 +7,7 @@
  *             http://www.gnu.org/licenses/agpl-3.0.html
  * @link http://www.novius-os.org
  */
- 
+
 return array(
     'name'    => '‘Build your app’ wizard',
     'version' => '0.1',
