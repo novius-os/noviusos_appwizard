@@ -1,5 +1,5 @@
 <h1 class="appwizard">
-    <?= __('Build your application') ?>
+    <?= __('‘Build your app’ wizard') ?>
 </h1>
 <form method="post" id="<?= $form_id = uniqid('appwizard_') ?>" action="admin/noviusos_appwizard/application/generate">
     <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
