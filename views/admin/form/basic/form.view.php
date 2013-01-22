@@ -160,7 +160,7 @@
 
                 $applicationSettingsFolder.keyup(function() {
                     toUnderscoreNameInput($applicationSettingsFolder);
-                    $applicationSettingsNamespace.val(toSlashName(newName));
+                    $applicationSettingsNamespace.val(toSlashName($applicationSettingsFolder.val()));
                 });
 
                 $applicationSettingsNamespace.keyup(function() {
@@ -232,7 +232,7 @@
                         addCategory($this);
                         refreshWizard($this);
                         refreshCategories($this);
-                    });
+                    }).click();
 
                     $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][categories]');
 
@@ -492,15 +492,15 @@
                 }
 
                 function toSlashName(str) {
-                    var str = removeDiacritics(str).replace(/([^A-Z|a-z| |\\|_])/g, '').trim().replace(/([ |_])/g, '\\');
+                    var str = removeDiacritics(str).replace(/([^A-Z|a-z| |\\|_])/g, '').trim().replace(/(_)/g, ' ');
                     if (str.substr(0, 1) === '\\') {
                         str = str.substr(1);
                     }
-                    str = str.split('\\');
+                    str = str.split(' ');
                     for (var i = 0; i < str.length; i++) {
                         str[i] = str[i].charAt(0).toUpperCase() + str[i].substr(1);
                     }
-                    return str.join('\\');
+                    return str.join('');
                 }
 
 
