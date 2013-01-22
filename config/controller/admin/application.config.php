@@ -22,14 +22,23 @@ return array(
             'config/controller/admin',
             'config/model',
             'config/common',
-            'static',
             'views',
             'views/admin',
-            'views/front'
+            'views/front',
+            'static',
+            'static/img',
+            'static/img/16',
+            'static/img/32',
+            'static/img/64',
         ),
         'files' =>
             function($root_dir, $data, $config)
             {
+                $theme_path = realpath(__DIR__.DS.'..'.DS.'..'.DS.'..'.DS.'views'.DS.'admin'.DS.'generation'.DS.'basic'); // @todo: find better way to do it
+                copy($theme_path.DS.'static'.DS.'img'.DS.'16'.DS.'icon.png', $root_dir.DS.'static'.DS.'img'.DS.'16'.DS.'icon.png');
+                copy($theme_path.DS.'static'.DS.'img'.DS.'32'.DS.'icon.png', $root_dir.DS.'static'.DS.'img'.DS.'32'.DS.'icon.png');
+                copy($theme_path.DS.'static'.DS.'img'.DS.'64'.DS.'icon.png', $root_dir.DS.'static'.DS.'img'.DS.'64'.DS.'icon.png');
+
                 $files = array();
                 $files[] = array(
                     'template' => 'config/metadata.config',

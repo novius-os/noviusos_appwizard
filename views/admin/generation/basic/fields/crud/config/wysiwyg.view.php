@@ -1,5 +1,5 @@
-'wysiwygs-><?= $field['name'] ?>->wysiwyg_text' => array(
-    'label' => __('<?= \Inflector::humanize($field['name']) ?>'),
+'wysiwygs-><?= $field['column_name'] ?>->wysiwyg_text' => array(
+    'label' => __(<?= var_export($field['label']) ?>),
     'renderer' => 'Nos\Renderer_Wysiwyg',
     'template' => '{field}',
     'form' => array(

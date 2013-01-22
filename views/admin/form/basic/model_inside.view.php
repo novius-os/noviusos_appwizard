@@ -10,13 +10,13 @@
             <label>
                 <?= __('Table name (e.g. monkeys):') ?>
             </label>
-            <input type="text" name="table_name" />
+            <input type="text" name="table_name" class="table_name" />
         </div>
         <div class="labelled_input">
             <label>
-                <?= __('Column prefix (e.g. monkeys_):') ?>
+                <?= __('Column prefix (e.g. monk_):') ?>
             </label>
-            <input type="text" name="column_prefix" />
+            <input type="text" name="column_prefix" class="column_prefix" />
         </div>
     </div>
 </div>

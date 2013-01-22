@@ -1,4 +1,4 @@
-__('<?= $category['name'] ?>') => array(
+__(<?= var_export($category['name']) ?>) => array(
 <?php
 $fieldsName = array();
 foreach ($fields as $field) {

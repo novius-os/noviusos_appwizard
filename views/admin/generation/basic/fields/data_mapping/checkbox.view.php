@@ -1,6 +1,6 @@
-'<?= $model['column_prefix'].$field['name'] ?>' => array(
-    'title' => __('<?= \Inflector::humanize($field['name']) ?>'),
+'<?= $model['column_prefix'].$field['column_name'] ?>' => array(
+    'title' => __(<?= var_export($field['label']) ?>),
     'value' => function($item) {
-        return $item-><?= $model['column_prefix'].$field['name'] ?> ? __('Yes') : __('No');
+        return $item-><?= $model['column_prefix'].$field['column_name'] ?> ? __('Yes') : __('No');
     },
 ),
