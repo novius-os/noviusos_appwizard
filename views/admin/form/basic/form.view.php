@@ -136,6 +136,7 @@
                         var $addField = $panel.find('.add_field');
                         if ($addField.length > 0 && $panel.find('.field_item').length == 0) {
                             $addField.click();
+                            $panel.find('.is_on_appdesk').attr('checked', true).wijcheckbox('refresh');
                         }
 
                         $panel.find('.category_type').wijdropdown('refresh');
