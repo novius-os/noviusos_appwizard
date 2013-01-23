@@ -1,6 +1,6 @@
 <?= "<?php\n" ?>
 return array(
-    'name'    => "<?= $data['application_settings']['name'] ?>",
+    'name'    => <?= var_export($data['application_settings']['name']) ?>,
     'version' => 'WIP', //@todo: to be defined
     'provider' => array(
         'name' => 'Unknown', //@todo: to be defined

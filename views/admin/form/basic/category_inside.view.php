@@ -9,8 +9,14 @@
         <div class="labelled_input">
             <label>
                 <?= __('Type:') ?>
+                <?= \View::forge('nos::admin/tooltip', array(
+                'title' => '',
+                'content' => '<img src="static/apps/noviusos_appwizard/img/help.png"/>',
+                'options' => array(
+                ),
+            ), false) ?>
             </label>
-            <select name="type" class="notransform">
+            <select name="type" style="width: 200px;">
 <?php
 foreach ($config['category_types'] as $key => $val) {
     echo '<option value="'.$key.'">'.$val['label'].'</option>';

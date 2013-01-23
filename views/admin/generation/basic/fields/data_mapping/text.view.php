@@ -1,6 +1,6 @@
-'<?= $model['column_prefix'].$field['name'] ?>' => array(
-    'title' => __('<?= \Inflector::humanize($field['name']) ?>'),
+'<?= $model['column_prefix'].$field['column_name'] ?>' => array(
+    'title' => __(<?= var_export($field['label']) ?>),
     'value' => function($item) {
-        return \Str::truncate($item-><?= $model['column_prefix'].$field['name'] ?>, 30);
+        return \Str::truncate($item-><?= $model['column_prefix'].$field['column_name'] ?>, 30);
     },
 ),

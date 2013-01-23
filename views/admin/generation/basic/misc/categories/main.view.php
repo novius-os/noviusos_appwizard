@@ -1,7 +1,7 @@
 '<?= Inflector::friendly_title($category['name'], '_', true, false) ?>' => array(
     'view' => 'nos::form/expander',
     'params' => array(
-        'title'   => __('<?= $category['name'] ?>'),
+        'title'   => __(<?= var_export($category['name']) ?>),
         'nomargin' => true,
         'options' => array(
             'allowExpand' => false,
