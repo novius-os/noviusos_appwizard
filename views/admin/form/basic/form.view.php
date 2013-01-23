@@ -90,7 +90,10 @@
     .field_item > .labelled_input > label {
         margin-top: 10px;
         margin-bottom: 5px;
-        font-weight: bold;
+    }
+
+    .field_item .visible_where {
+        margin-top: 15px;
     }
 </style>
 
@@ -118,7 +121,25 @@
                 var $tabs = $form.find('.tabs');
                 $tabs.css('display', 'block').nosOnShow();
                 $tabs.wijtabs({
-                    alignment: 'left'
+                    alignment: 'left',
+                    show: function(e, ui) {
+                        // I would like to do this when I add a model but wijmo have a strange behaviour when
+                        // applying elements when container is invisible
+                        // I am not happy with this solution but it works.
+                        var $panel = $(ui.panel);
+
+                        var $addCategory = $panel.find('.add_category');
+                        if ($addCategory.length > 0 && $panel.find('.category').length == 0) {
+                            $addCategory.click();
+                        }
+
+                        var $addField = $panel.find('.add_field');
+                        if ($addField.length > 0 && $panel.find('.field_item').length == 0) {
+                            $addField.click();
+                        }
+
+                        $panel.find('.category_type').wijdropdown('refresh');
+                    }
                 });
                 $tabs.find('> div').addClass('fill-parent').css({
                     left: '15%',
@@ -156,11 +177,13 @@
                     var applicationName = $applicationSettingsName.val();
                     $applicationSettingsFolder.val(toUnderscoreName(applicationName));
                     $applicationSettingsNamespace.val(toSlashName(applicationName));
+                    refreshCompileTab();
                 });
 
                 $applicationSettingsFolder.keyup(function() {
                     toUnderscoreNameInput($applicationSettingsFolder);
                     $applicationSettingsNamespace.val(toSlashName($applicationSettingsFolder.val()));
+                    refreshCompileTab();
                 });
 
                 $applicationSettingsNamespace.keyup(function() {
@@ -169,7 +192,18 @@
                     if (newName !== namespace) {
                         $applicationSettingsNamespace.val(newName);
                     }
+                    refreshCompileTab();
                 });
+
+                function refreshCompileTab() {
+                    var isApplicationSet = $applicationSettingsName.val() !== '' &&
+                            $applicationSettingsFolder.val() !== '' &&
+                            $applicationSettingsNamespace.val() !== '';
+                    var compileAction = ($tabs.find('.ui-state-disabled').length > 1 || !isApplicationSet) ? 'disableTab' : 'enableTab';
+                    var length = $tabs.wijtabs('length');
+                    $tabs.wijtabs(compileAction, length - 1);
+                }
+                refreshCompileTab();
 
 
 
@@ -194,22 +228,31 @@
                     $modelName.keyup(function() {
                         var modelName = $modelName.val();
                         var newName = modelName.toLowerCase().replace(/([^A-Z|a-z])/g, '');
-                        newName = newName[0].toUpperCase() + newName.substr(1);
+                        if (newName !== '') {
+                            newName = newName[0].toUpperCase() + newName.substr(1);
+                        }
                         if (modelName !== newName) {
                             $modelName.val(newName);
                         }
                         $tableName.val(toUnderscoreName(newName + 's'));
                         $columnPrefix.val(toUnderscoreName(newName.substr(0, 4) + '_'));
+                        checkTabEnabled();
                     });
 
                     $tableName.keyup(function() {
                         toUnderscoreNameInput($tableName);
                         $columnPrefix.val(toUnderscoreName($tableName.val().substr(0, 4) + '_'));
+                        checkTabEnabled();
                     });
 
                     $columnPrefix.keyup(function() {
                         toUnderscoreNameInput($columnPrefix);
+                        checkTabEnabled();
                     });
+
+                    function checkTabEnabled() {
+                        setEnabledTabs(!($tableName.val() == '' || $columnPrefix.val() == '' || $columnPrefix.val() == ''));
+                    }
 
                     var fieldLayoutId = 'field_layout_' + i;
 
@@ -226,13 +269,14 @@
 
                     $tabs.wijtabs('add', '#' + fieldLayoutId, 'field_layout', i * 2 + 1);
 
-                    $fieldLayout.find('.add_category').click(function(e) {
+                    var $addCategory = $fieldLayout.find('.add_category');
+                    $addCategory.click(function(e) {
                         e.preventDefault();
                         var $this = $(this);
                         addCategory($this);
                         refreshWizard($this);
                         refreshCategories($this);
-                    }).click();
+                    });
 
                     $fieldLayout.find('.categories_list').data('key', 'models[' + i + '][categories]');
 
@@ -255,7 +299,8 @@
 
                     $tabs.wijtabs('add', '#' + fieldsId, 'fields', i * 2 + 2);
 
-                    $fields.find('.add_field').click(function(e) {
+                    var $addField = $fields.find('.add_field');
+                    $addField.click(function(e) {
                         e.preventDefault();
                         var $this = $(this);
                         addField($this);
@@ -271,6 +316,14 @@
                         $tabs.wijtabs('select', ni * 2 + 3);
                     });
 
+                    setEnabledTabs(false);
+                    function setEnabledTabs(enabled) {
+                        var action = enabled ? 'enableTab' : 'disableTab';
+                        $tabs.wijtabs(action, ni * 2 + 1);
+                        $tabs.wijtabs(action, ni * 2 + 2);
+
+                        refreshCompileTab();
+                    }
 
                     refreshWizard($el);
 
@@ -326,7 +379,12 @@
                     $fieldContent.find('.is_title_checkbox').change(function() {
                         var $this = $(this);
                         var $crudOptions = $this.closest('.field_item').find('.crud_other_options');
-                        $this.is(':checked') ? $crudOptions.addClass('inactive') : $crudOptions.removeClass('inactive');
+                        if ($this.is(':checked')) {
+                            $crudOptions.addClass('inactive');
+                        } else {
+                            $crudOptions.removeClass('inactive');
+                            $crudOptions.find('.category_type').wijdropdown('refresh');
+                        }
                     });
 
                     var $useTitleCheckbox = $fieldContent.find('.use_title_checkbox');
@@ -385,7 +443,7 @@
                         var previousVal = $this.val();
                         $this.html(options);
                         $this.val(previousVal);
-                        // $this.wijdropdown('refresh');
+                        $this.wijdropdown('refresh');
                         // $this.wijdropdown();
                     });
                 }
