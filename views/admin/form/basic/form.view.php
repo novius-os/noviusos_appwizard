@@ -45,7 +45,7 @@
         margin-left: 20px;
     }
 
-    .crud_options.inactive, .crud_other_options.inactive {
+    .crud_options.inactive, .crud_other_options.inactive, .is_title_area.inactive {
         display: none;
     }
 
@@ -370,8 +370,13 @@
                     $fieldContent.nosFormUI();
 
                     $fieldContent.find('.crud_options').addClass('inactive');
+                    var $isTitleArea = $fieldList.find('.is_title_checkbox:checked');
+                    if ($isTitleArea.length > 0) {
+                        $fieldContent.find('.is_title_area').addClass('inactive');
+                    }
 
                     var $isOnCrudCheckbox = $fieldContent.find('.is_on_crud_checkbox');
+                    var $isOnAppdeskCheckbox = $fieldContent.find('.is_on_appdesk');
 
                     $isOnCrudCheckbox.change(function() {
                         refreshIsOnCrudCheckbox($(this));
@@ -382,9 +387,14 @@
                         var $crudOptions = $this.closest('.field_item').find('.crud_other_options');
                         if ($this.is(':checked')) {
                             $crudOptions.addClass('inactive');
+                            $isOnAppdeskCheckbox.attr('checked', true).wijcheckbox('refresh');
+                            $isOnCrudCheckbox.attr('checked', true).wijcheckbox('refresh');
+                            $fieldList.find('.is_title_area').addClass('inactive');
+                            $this.closest('.is_title_area').removeClass('inactive');
                         } else {
                             $crudOptions.removeClass('inactive');
                             $crudOptions.find('.category_type').wijdropdown('refresh');
+                            $fieldList.find('.is_title_area').removeClass('inactive');
                         }
                     });
 

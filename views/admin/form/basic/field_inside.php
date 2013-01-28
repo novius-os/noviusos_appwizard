@@ -29,6 +29,12 @@ foreach ($config['fields'] as $key => $val) {
         </select>
     </div>
     <div class="visible_where">
+        <div class="labelled_input is_title_area">
+            <input type="checkbox" name="is_title" class="is_title_checkbox" />
+            <label class="inline">
+                <?= __('Is the form title') ?>
+            </label>
+        </div>
         <div class="labelled_input">
             <input type="checkbox" name="is_on_appdesk" class="is_on_appdesk" />
             <label class="inline">
@@ -42,12 +48,6 @@ foreach ($config['fields'] as $key => $val) {
             </label>
         </div>
         <div class="crud_options">
-            <div class="labelled_input">
-                <input type="checkbox" name="is_title" class="is_title_checkbox" />
-                <label class="inline">
-                    <?= __('Is the form title') ?>
-                </label>
-            </div>
             <div class="crud_other_options">
                 <div class="labelled_input">
                     <label>
