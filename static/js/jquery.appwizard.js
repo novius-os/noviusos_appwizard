@@ -14,7 +14,7 @@ $.widget("nos.appwizard", {
         tabsMenu: null,
         applicationSettingsName: null,
         applicationSettingsFolder: null,
-        applicationSettingsNamespace: null,
+        applicationSettingsNamespace: null
     },
     modelId: 0,
 
@@ -535,6 +535,5 @@ $.widget("nos.appwizard", {
             });
         }
     }
-
 
 });
