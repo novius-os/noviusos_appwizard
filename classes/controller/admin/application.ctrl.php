@@ -20,6 +20,13 @@ class Controller_Admin_Application extends \Nos\Controller_Admin_Application
     public function action_generate()
     {
         $application_informations = Application_Generator::generate($this->config['basic'], \Input::post());
-        \Response::json(array('notify' => __('Bravo! Your application has been created. We hope you’ll like it.'), 'application_informations' => $application_informations));
+        \Response::json(array(
+            'notify' => __('Bravo! Your application has been created. We hope you’ll like it.'),
+            'application_informations' => $application_informations,
+            'dispatchEvent' => array(
+                'name' => 'Nos\\Application',
+                'action' => 'refresh',
+            )
+        ));
     }
 }
