@@ -1,0 +1,60 @@
+.models_list .field_item {
+    border: 1px solid grey;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.crud_options, .column_options {
+    margin-left: 20px;
+}
+
+.crud_options.inactive, .crud_other_options.inactive, .is_title_area.inactive {
+    display: none;
+}
+
+.installation_successful {
+    margin: 20px;
+    margin-top: 35px;
+    padding: 10px;
+    display: none;
+}
+
+.installation_successful.done {
+    display: block;
+}
+
+.installation_successful h2 {
+    font-size: 20px;
+}
+
+.installation_successful .sql {
+    margin-top: 5px;
+}
+
+#general_application_settings hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1.appwizard {
+    margin-top: 6px;
+    margin-left: 4%;
+    font-size: 18px;
+}
+
+.appwizard label {
+    display: block;
+}
+
+.appwizard label.inline, .appwizard label.tooltip {
+    display: inline;
+}
+
+.field_item > .labelled_input > label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.field_item .visible_where {
+    margin-top: 15px;
+}
