@@ -1,13 +1,12 @@
 <?php
-/**
- * NOVIUS OS - Web OS for digital communication
- *
- * @copyright  2011 Novius
- * @license    GNU Affero General Public License v3 or (at your option) any later version
- *             http://www.gnu.org/licenses/agpl-3.0.html
- * @link http://www.novius-os.org
- */
+
+// Generated on 29/01/2013 19:08:29
+
+// 1 out of 1 messages are translated (100%).
+// 4 out of 4 words are translated (100%).
 
 return array(
+    #. Overwritten
     '‘Build your app’ wizard' => 'Assistant ‘Créer mon appli’',
+
 );
