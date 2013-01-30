@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `<?= $model['table_name'] ?>` (
 <?php
 foreach ($model['fields'] as $field) {
     $view = render(
-        $config['generation_path'].'/fields/sql/'.$field['type'],
+        $config['fields'][$field['type']]['views']['sql'],
         array(
             'model' => $model,
             'field' => $field,

@@ -16,6 +16,25 @@ class Application_Generator
     {
         $root_dir = APPPATH.'applications/'.$input['application_settings']['folder'];
 
+
+        foreach ($config['fields'] as $key => &$field_config) {
+            if (!isset($field_config['views'])) {
+                $field_config['views'] = array();
+            }
+            if (!isset($field_config['views']['data_mapping'])) {
+                $field_config['views']['data_mapping'] = $config['generation_path'].'/fields/data_mapping/'.$key;
+            }
+            if (!isset($field_config['views']['crud_name'])) {
+                $field_config['views']['crud_name'] = $config['generation_path'].'/fields/crud/name/'.$key;
+            }
+            if (!isset($field_config['views']['crud_config'])) {
+                $field_config['views']['crud_config'] = $config['generation_path'].'/fields/crud/config/'.$key;
+            }
+            if (!isset($field_config['views']['sql'])) {
+                $field_config['views']['sql'] = $config['generation_path'].'/fields/sql/'.$key;
+            }
+        }
+
         if (file_exists($root_dir)) {
             throw new \Exception('Folder already exists!');
         }

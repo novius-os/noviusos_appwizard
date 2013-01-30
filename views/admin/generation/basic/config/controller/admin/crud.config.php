@@ -8,7 +8,7 @@ $title_field = null;
 foreach ($model['fields'] as $field) {
     if (isset($field['is_on_crud']) && $field['is_on_crud']) {
         if (isset($field['is_title']) && $field['is_title']) {
-            $title_field = render($config['generation_path'].'/fields/crud/name/'.$field['type'],
+            $title_field = render($config['fields'][$field['type']]['views']['crud_name'],
                 array(
                     'field' => $field,
                     'model' => $model,
@@ -89,7 +89,7 @@ if (isset($viewsByCategoryType['menu'])) {
 foreach ($model['fields'] as $field) {
     echo \Nos\AppWizard\Application_Generator::indent(
         '        ',
-        render($config['generation_path'].'/fields/crud/config/'.$field['type'],
+        render($config['fields'][$field['type']]['views']['crud_config'],
             array(
                 'field' => $field,
                 'model' => $model,

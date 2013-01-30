@@ -8,7 +8,7 @@ foreach ($model['fields'] as $field) {
         echo \Nos\AppWizard\Application_Generator::indent(
             '        ',
             render(
-                $config['generation_path'].'/fields/data_mapping/'.$field['type'],
+                $config['fields'][$field['type']]['views']['data_mapping'],
                 array(
                     'field' => $field,
                     'model' => $model,
