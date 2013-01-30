@@ -1,4 +1,6 @@
 <?php
+$form_id = uniqid('appwizard_');
+
 $i18n = array(
     'Step {{num}}. ({{modelName}}) Fields layout' => __('Step {{num}}. ({{modelName}}) Fields layout'),
     'Step {{num}}. ({{modelName}}) Fields' => __('Step {{num}}. ({{modelName}}) Fields'),
@@ -16,6 +18,7 @@ $templates = array(
 );
 
 $options = array(
+    'idPrefix' => $form_id.'_',
     'i18n' => $i18n,
     'templates' => $templates
 );
@@ -23,7 +26,7 @@ $options = array(
 <h1 class="appwizard">
     <?= __('‘Build your app’ wizard') ?>
 </h1>
-<form method="post" id="<?= $form_id = uniqid('appwizard_') ?>" class="appwizard" action="admin/noviusos_appwizard/application/generate">
+<form method="post" id="<?= $form_id ?>" class="appwizard" action="admin/noviusos_appwizard/application/generate">
     <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
         <ul style="width: 15%;">
             <li><a href="#general_application_settings"><?= __('Step 1. Main properties') ?></a></li>

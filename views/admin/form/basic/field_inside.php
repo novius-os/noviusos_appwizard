@@ -10,11 +10,12 @@
             <?= __('Column name (without prefix; e.g. title):') ?>
         </label>
         <input type="text" name="column_name" class="column_input" style="width: 85%;" />
-        <input type="checkbox" name="use_title" class="use_title_checkbox" checked/>
-        <label class="inline">
-            <?= __('Use label') ?>
-        </label>
-
+        <span class="labelled_input">
+            <input type="checkbox" name="use_title" class="use_title_checkbox" checked/>
+            <label class="inline">
+                <?= __('Use label') ?>
+            </label>
+        </span>
     </div>
     <div class="labelled_input">
         <label>

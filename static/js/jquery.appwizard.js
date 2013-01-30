@@ -1,5 +1,6 @@
 $.widget("nos.appwizard", {
     options: {
+        idPrefix: 'appwizard_',
         i18n: {
             'Step {{num}}. ({{modelName}}) Fields layout': 'Step {{num}}. ({{modelName}}) Fields layout',
             'Step {{num}}. ({{modelName}}) Fields': 'Step {{num}}. ({{modelName}}) Fields',
@@ -17,6 +18,7 @@ $.widget("nos.appwizard", {
         applicationSettingsNamespace: null
     },
     modelId: 0,
+    inputId: 0,
 
     __: function(str) {
         return this.options.i18n[str];
@@ -78,7 +80,7 @@ $.widget("nos.appwizard", {
         $form.bind('ajax_success', function() {
             $(this).find('.installation_successful').addClass('done');
         });
-        $form.nosFormUI();
+        self.processDom($form);
         $form.submit(function(e) {
             self.processInputList($(this), 'input, select');
         });
@@ -134,7 +136,7 @@ $.widget("nos.appwizard", {
 
         var $modelContent = $(self.options.templates['model']);
         $modelsList.append($modelContent);
-        $modelContent.nosFormUI();
+        self.processDom($modelContent);
 
         var $modelName = $modelContent.find('.model_name');
         var $tableName = $modelContent.find('.table_name');
@@ -180,7 +182,7 @@ $.widget("nos.appwizard", {
         $fieldLayout.data('modelId', self.modelId);
         $fieldLayout.html(self.options.templates['categories']);
         $fieldLayout.appendTo(self.instances.tabs);
-        $fieldLayout.nosFormUI();
+        self.processDom($fieldLayout);
 
         self.instances.tabs.wijtabs('add', '#' + fieldLayoutId, 'field_layout', self.modelId * 2 + 1);
 
@@ -210,7 +212,7 @@ $.widget("nos.appwizard", {
         $fields.data('modelId', self.modelId);
         $fields.html(self.options.templates['fields']);
         $fields.appendTo(self.instances.tabs);
-        $fields.nosFormUI();
+        self.processDom($fields);
 
         self.instances.tabs.wijtabs('add', '#' + fieldsId, 'fields', self.modelId * 2 + 2);
 
@@ -252,7 +254,7 @@ $.widget("nos.appwizard", {
 
         var $categoryContent = $(self.options.templates['category']);
         $categoriesList.append($categoryContent);
-        $categoryContent.nosFormUI();
+        self.processDom($categoryContent);
         $categoryContent.find('.category_name').keyup(function(e) {
             e.preventDefault();
             self.refreshCategories($(this));
@@ -264,7 +266,7 @@ $.widget("nos.appwizard", {
         var $fieldList = $el.closest('.model_fields').find('.model_fields_list');
         var $fieldContent = $(self.options.templates['field']);
         $fieldList.append($fieldContent);
-        $fieldContent.nosFormUI();
+        self.processDom($fieldContent);
 
         $fieldContent.find('.crud_options').addClass('inactive');
         var $isTitleArea = $fieldList.find('.is_title_checkbox:checked');
@@ -534,6 +536,24 @@ $.widget("nos.appwizard", {
                 self.processInputList($(this), inputSelector);
             });
         }
+    },
+
+    processDom: function($el) {
+        this.processLabelledInput($el);
+        $el.nosFormUI();
+    },
+
+    processLabelledInput: function($el) {
+        var self = this;
+        $el.find('.labelled_input').each(function() {
+            var $this = $(this);
+            var $label = $this.find('label:first');
+            var $input = $this.find('input:first, select:first, textarea:first');
+            console.log($label[0], $input[0]);
+            $input.attr('id', self.options.idPrefix + self.inputId);
+            $label.attr('for', self.options.idPrefix + self.inputId);
+            self.inputId++;
+        });
     }
 
 });
