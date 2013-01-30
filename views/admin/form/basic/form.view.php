@@ -66,6 +66,15 @@ $options = array(
                 var $form = $('#<?= $form_id ?>');
                 var options = <?= json_encode($options) ?>;
                 $form.appwizard(options);
+
+                $form.nosTabs('update', {
+                    label: <?= \Format::forge(__('‘Build your app’ wizard'))->to_json() ?>,
+                    url:  'admin/noviusos_appwizard/application',
+                    iconUrl: 'static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
+                    app: true,
+                    iconSize: 32,
+                    labelDisplay: false
+                });
             }
     );
 </script>
