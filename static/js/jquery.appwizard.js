@@ -549,7 +549,6 @@ $.widget("nos.appwizard", {
             var $this = $(this);
             var $label = $this.find('label:first');
             var $input = $this.find('input:first, select:first, textarea:first');
-            console.log($label[0], $input[0]);
             $input.attr('id', self.options.idPrefix + self.inputId);
             $label.attr('for', self.options.idPrefix + self.inputId);
             self.inputId++;

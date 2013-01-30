@@ -48,10 +48,10 @@ $options = array(
             <button class="primary"><?= __('Generate') ?></button>
             <div class="installation_successful">
                 <h2>
-                    <?= __('Now that you have a brand new application') ?>
+                    <?= __('You now have a brand new application') ?>
                 </h2>
                 <div class="sql">
-                    <?= __('What is next? Sql installation file is located at install.sql.') ?>
+                    <?= __('(FYI: the SQL installation file is to be found at the root of the application.)') ?>
                 </div>
             </div>
         </div>

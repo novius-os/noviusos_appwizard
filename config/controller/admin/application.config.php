@@ -39,6 +39,33 @@ return array(
                 copy($theme_path.DS.'static'.DS.'img'.DS.'32'.DS.'icon.png', $root_dir.DS.'static'.DS.'img'.DS.'32'.DS.'icon.png');
                 copy($theme_path.DS.'static'.DS.'img'.DS.'64'.DS.'icon.png', $root_dir.DS.'static'.DS.'img'.DS.'64'.DS.'icon.png');
 
+                // remove blank models, categories and fields
+                if (isset($data['models']) && is_array($data['models'])) {
+                    $models = array();
+                    foreach ($data['models'] as $model) {
+                        if (!empty($model['name']) && !empty($model['table_name']) && !empty($model['column_prefix'])) {
+                            $categories = array();
+                            foreach ($model['categories'] as $category) {
+                                if (!empty($category['name'])) {
+                                    $categories[] = $category;
+                                }
+                            }
+                            $model['categories'] = $categories;
+
+                            $fields = array();
+                            foreach ($model['fields'] as $field) {
+                                if (!empty($field['label']) && !empty($field['column_name'])) {
+                                    $fields[] = $field;
+                                }
+                            }
+                            $model['fields'] = $fields;
+
+                            $models[] = $model;
+                        }
+                    }
+                    $data['models'] = $models;
+                }
+
                 $files = array();
                 $files[] = array(
                     'template' => 'config/metadata.config',
@@ -51,7 +78,7 @@ return array(
                     'data' => array('data' => $data, 'config' => $config),
                 );
 
-                if (isset($data['models'])) {
+                if (isset($data['models']) && is_array($data['models']) && count($data['models']) > 0) {
                     foreach ($data['models'] as $model) {
                         mkdir($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);
                         chmod($root_dir.'/classes/controller/admin/'.strtolower($model['name']), 0777);

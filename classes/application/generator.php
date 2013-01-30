@@ -16,7 +16,6 @@ class Application_Generator
     {
         $root_dir = APPPATH.'applications/'.$input['application_settings']['folder'];
 
-
         foreach ($config['fields'] as $key => &$field_config) {
             if (!isset($field_config['views'])) {
                 $field_config['views'] = array();
