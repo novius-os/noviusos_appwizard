@@ -30,8 +30,8 @@ return array(
         ),
     ),
     'icons' => array(
-        16 => '/static/apps/noviusos_appwizard/img/icons/appwizard-16.png',
-        32 => '/static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
-        64 => '/static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
+        16 => 'static/apps/noviusos_appwizard/img/icons/appwizard-16.png',
+        32 => 'static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
+        64 => 'static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
     ),
 );
