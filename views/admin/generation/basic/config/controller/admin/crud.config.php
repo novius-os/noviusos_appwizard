@@ -5,6 +5,7 @@ $content = array();
 
 $fieldsByCategory = array();
 $title_field = null;
+$medias = array();
 foreach ($model['fields'] as $field) {
     if (isset($field['is_on_crud']) && $field['is_on_crud']) {
         if (isset($field['is_title']) && $field['is_title']) {
@@ -15,6 +16,14 @@ foreach ($model['fields'] as $field) {
                     'data' => $data,
                     'config' => $config,
                 ));
+        } elseif ($field['type'] == 'image') {
+            $medias[] = render($config['fields'][$field['type']]['views']['crud_name'],
+                array(
+                    'field' => $field,
+                    'model' => $model,
+                    'data' => $data,
+                    'config' => $config,
+                ));;
         } else {
             if (!isset($fieldsByCategory[$field['category']])) {
                 $fieldsByCategory[$field['category']] = array();
@@ -53,6 +62,9 @@ return array(
 <?php
 if ($title_field !== null) {
     echo "        'title' => '".$title_field."',\n";
+}
+if (count($medias) > 0) {
+    echo "        'medias' => array('".implode("', '", $medias)."'),\n";
 }
 
 if (isset($viewsByCategoryType['main'])) {

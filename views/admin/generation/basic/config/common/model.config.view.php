@@ -3,8 +3,16 @@ return array(
     'controller' => '<?= strtolower($model['name']).'/crud' ?>',
     'data_mapping' => array(
 <?php
+$thumbnails_rendered = false;
 foreach ($model['fields'] as $field) {
     if (isset($field['is_on_appdesk']) && $field['is_on_appdesk']) {
+        if ($field['type'] == 'image') {
+            if ($thumbnails_rendered) {
+                // we add the data_mapping (thumbnail and thumbnailAlternate) for the media only once
+                continue;
+            }
+            $thumbnails_rendered = true;
+        }
         echo \Nos\AppWizard\Application_Generator::indent(
             '        ',
             render(
