@@ -1,7 +1,18 @@
 <?= "<?php\n" ?>
-
+<?php
+$thumbnails = false;
+foreach ($model['fields'] as $field) {
+    if (isset($field['is_on_appdesk']) && $field['is_on_appdesk']) {
+        if ($field['type'] == 'image') {
+            $thumbnails = true;
+            break;
+        }
+    }
+}
+?>
 return array(
     'model' => '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>',
+    <?= $thumbnails ? "'thumbnails' => true," : '' ?>
     /*
     'search_text' => 'post_title',
     */
