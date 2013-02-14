@@ -23,7 +23,7 @@ foreach ($model['fields'] as $field) {
                     'model' => $model,
                     'data' => $data,
                     'config' => $config,
-                ));;
+                ));
         } else {
             if (!isset($fieldsByCategory[$field['category']])) {
                 $fieldsByCategory[$field['category']] = array();
