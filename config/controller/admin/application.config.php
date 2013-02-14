@@ -141,6 +141,10 @@ return array(
             'checkbox' => array(
                 'label' => __('Checkbox')
             ),
+            'image' => array(
+                'label' => __('Image from Media Centre')
+            ),
+
         )
     ),
 );
