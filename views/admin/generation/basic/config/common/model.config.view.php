@@ -28,7 +28,6 @@ foreach ($model['fields'] as $field) {
         echo "\n";
     }
 }
-echo "\n";
 ?>
     ),
     /*

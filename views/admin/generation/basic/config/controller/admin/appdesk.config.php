@@ -12,7 +12,21 @@ foreach ($model['fields'] as $field) {
 ?>
 return array(
     'model' => '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>',
-    <?= $thumbnails ? "'thumbnails' => true," : '' ?>
+<?php
+if ($thumbnails) {
+    echo <<<MYDELIMITER
+    'thumbnails' => true,
+    /*
+    'appdesk' => array(
+        'appdesk' => array(
+            'defaultView' => 'thumbnails',
+        ),
+    ),
+    */
+MYDELIMITER;
+    echo "\n";
+}
+?>
     /*
     'search_text' => 'post_title',
     */

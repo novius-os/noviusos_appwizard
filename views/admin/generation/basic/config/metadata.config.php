@@ -46,22 +46,37 @@ if (isset($data['models'])) {
         ),
     ),
     */
-    /* Enhancer configuration sample
+    // Enhancer configuration sample
     'enhancers' => array(
-        'key' => array( // key must be defined
-            'title' => 'title',
+<?php
+if (isset($data['models'])) {
+    foreach ($data['models'] as $model) {
+        if (!isset($model['has_url_enhancer'])) {
+            echo "        /*\n";
+        }
+        $title = str_replace("'", "\\'", $data['application_settings']['name'] . ' ' . $model['name']);
+        echo <<<MYDELIMITER
+        '{$data['application_settings']['folder'] }_{$model['table_name']}' => array( // key must be defined
+            'title' => '$title',
             'desc'  => '',
-            'urlEnhancer' => '<?= $data['application_settings']['folder'] ?>/front/main', // URL of the enhancer
-            'previewUrl' => 'admin/<?= $data['application_settings']['folder'] ?>/application/preview', // URL of preview
-            'dialog' => array(
-                'contentUrl' => 'admin/<?= $data['application_settings']['folder'] ?>/application/popup',
-                'width' => 450,
-                'height' => 400,
-                'ajax' => true,
-            ),
+            'urlEnhancer' => '{$data['application_settings']['folder']}/front/{$model['table_name']}/main', // URL of the enhancer
+            //'previewUrl' => 'admin/{$data['application_settings']['folder']}/application/preview', // URL of preview
+            //'dialog' => array(
+            //    'contentUrl' => 'admin/{$data['application_settings']['folder']}/application/popup',
+            //    'width' => 450,
+            //    'height' => 400,
+            //    'ajax' => true,
+            //),
         ),
+MYDELIMITER;
+        echo "\n";
+        if (!isset($model['has_url_enhancer'])) {
+            echo "        */\n";
+        }
+    }
+}
+?>
     ),
-    */
     /* Data catcher configuration sample
     'data_catchers' => array(
         'key' => array( // key must be defined
