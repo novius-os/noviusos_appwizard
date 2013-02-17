@@ -18,6 +18,11 @@ foreach ($model['fields'] as $field) {
     }
 }
 ?>
+<?php
+if (isset($model['has_url_enhancer'])) {
+    echo '    `' . $model['column_prefix'] . "virtual_name` varchar(30) NOT NULL,\n";
+}
+?>
     `<?= $model['column_prefix'] ?>created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
     `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`<?= $model['column_prefix'] ?>id`),

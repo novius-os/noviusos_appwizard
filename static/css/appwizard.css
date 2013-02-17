@@ -58,3 +58,6 @@ h1.appwizard {
 .field_item .visible_where {
     margin-top: 15px;
 }
+.appwizard .has_url_enhancer{
+    margin-top: 5px;
+}

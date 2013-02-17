@@ -16,6 +16,7 @@ return array(
             'classes',
             'classes/controller',
             'classes/controller/admin',
+            'classes/controller/front',
             'classes/model',
             'config',
             'config/controller',
@@ -53,12 +54,17 @@ return array(
                             $model['categories'] = $categories;
 
                             $fields = array();
+                            $title_column_name = null;
                             foreach ($model['fields'] as $field) {
                                 if (!empty($field['label']) && !empty($field['column_name'])) {
                                     $fields[] = $field;
                                 }
+                                if (isset($field['is_title']) && $field['is_title']) {
+                                    $title_column_name = $field['column_name'];
+                                }
                             }
                             $model['fields'] = $fields;
+                            $model['title_column_name'] = $title_column_name;
 
                             $models[] = $model;
                         }
@@ -95,6 +101,13 @@ return array(
                             'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
                             'data' => $model_data,
                         );
+                        if (isset($model['has_url_enhancer'])) {
+                            $files[] = array(
+                                'template' => 'classes/controller/front.ctrl',
+                                'destination' => 'classes/controller/front/'.strtolower($model['name']).'.ctrl.php',
+                                'data' => $model_data,
+                            );
+                        }
                         $files[] = array(
                             'template' => 'classes/model/model.model',
                             'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
@@ -115,6 +128,18 @@ return array(
                             'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
                             'data' => $model_data,
                         );
+                        if (isset($model['has_url_enhancer'])) {
+                            $files[] = array(
+                                'template' => 'views/front/model_item.view',
+                                'destination' => 'views/front/'.strtolower($model['name']).'_item.view.php',
+                                'data' => $model_data,
+                            );
+                            $files[] = array(
+                                'template' => 'views/front/model_list.view',
+                                'destination' => 'views/front/'.strtolower($model['name']).'_list.view.php',
+                                'data' => $model_data,
+                            );
+                        }
                     }
                 }
 

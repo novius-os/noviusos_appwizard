@@ -41,7 +41,7 @@ class Application_Generator
         chmod($root_dir, 0777);
         static::generateFolders($root_dir, $config['folders']);
         static::generateFiles($root_dir, $config, $input);
-        if ($input['generation_options']['install']) {
+        if (!empty($input['generation_options']['install'])) {
             $sql = file_get_contents($root_dir.'/install.sql');
             $queries = (explode(";\n", $sql));
             array_pop($queries);
