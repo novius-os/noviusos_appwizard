@@ -13,15 +13,15 @@ foreach ($model['fields'] as $field) {
     // Load dictionnary if we want to use __()
     // Nos\I18n::current_dictionary('<?= $data['application_settings']['folder'] ?>::common');
 <?= "?>\n" ?>
-<h2><?= "<?=" ?> $<?= $model['table_name'] ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?> <?= "?>" ?></h2>
+<h2><?= "<?=" ?> $<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?> <?= "?>" ?></h2>
 
 <?php
 if (count($medias)) {
     echo "<?php\n";
 
     foreach ($medias as $media_name) {
-        echo 'if (!empty($' . $model['table_name'] . "->medias->$media_name)) {\n";
-        echo '    echo \'<img src="\' . $' . $model['table_name'] . '->medias->' . $media_name . '->get_public_path_resized(400, 300) . \'" alt="" />\';'."\n";
+        echo 'if (!empty($' . strtolower($model['name']) . "->medias->$media_name)) {\n";
+        echo '    echo \'<img src="\' . $' . strtolower($model['name']) . '->medias->' . $media_name . '->get_public_path_resized(400, 300) . \'" alt="" />\';'."\n";
         echo "}\n";
     }
     echo "?>\n";
@@ -31,7 +31,7 @@ if (count($medias)) {
 <?php
 if (count($wysiwygs)) {
     foreach ($wysiwygs as $wysiwyg_name) {
-        echo '<?= $' . $model['table_name'] . '->wysiwygs->' . $wysiwyg_name . " ?>\n";
+        echo '<?= $' . strtolower($model['name']) . '->wysiwygs->' . $wysiwyg_name . " ?>\n";
     }
 }
 ?>

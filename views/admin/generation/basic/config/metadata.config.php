@@ -55,11 +55,12 @@ if (isset($data['models'])) {
             echo "        /*\n";
         }
         $title = str_replace("'", "\\'", $data['application_settings']['name'] . ' ' . $model['name']);
+        $name_lower = strtolower($model['name']);
         echo <<<MYDELIMITER
-        '{$data['application_settings']['folder'] }_{$model['table_name']}' => array( // key must be defined
+        '{$data['application_settings']['folder'] }_{$name_lower}' => array( // key must be defined
             'title' => '$title',
             'desc'  => '',
-            'urlEnhancer' => '{$data['application_settings']['folder']}/front/{$model['table_name']}/main', // URL of the enhancer
+            'urlEnhancer' => '{$data['application_settings']['folder']}/front/{$name_lower}/main', // URL of the enhancer
             //'previewUrl' => 'admin/{$data['application_settings']['folder']}/application/preview', // URL of preview
             //'dialog' => array(
             //    'contentUrl' => 'admin/{$data['application_settings']['folder']}/application/popup',

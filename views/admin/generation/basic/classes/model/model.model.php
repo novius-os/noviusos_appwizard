@@ -29,7 +29,7 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
         */
 <?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Urlenhancer' => array(
-            'enhancers' => array('<?= $data['application_settings']['folder'] ?>_<?= $model['table_name'] ?>'),
+            'enhancers' => array('<?= $data['application_settings']['folder'] ?>_<?= strtolower($model['name']) ?>'),
         ),
 <?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
 <?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>

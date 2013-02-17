@@ -16,47 +16,47 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
             $segments = explode('/', $enhancer_url);
 
             if (!empty($segments[0])) {
-                return $this->display_<?= $model['table_name'] ?>($segments[0]);
+                return $this->display_<?= strtolower($model['name']) ?>($segments[0]);
             }
 
             throw new \Nos\NotFoundException();
         }
 
-        return $this->display_list_<?= $model['table_name'] ?>();
+        return $this->display_list_<?= strtolower($model['name']) ?>();
     }
 
-    protected function display_list_<?= $model['table_name'] ?>()
+    protected function display_list_<?= strtolower($model['name']) ?>()
     {
-        $<?= $model['table_name'] ?>_list =  Model_<?= $model['name'] ?>::find('all', array(
+        $<?= strtolower($model['name']) ?>_list =  Model_<?= $model['name'] ?>::find('all', array(
             'order_by' => array(
                 '<?= $model['column_prefix'] ?>id' => 'ASC'
             ),
             'limit' => 10
         ));
 
-        return \View::forge('front/<?= $model['table_name'] ?>_list', array(
-            '<?= $model['table_name'] ?>_list' => $<?= $model['table_name'] ?>_list,
+        return \View::forge('front/<?= strtolower($model['name']) ?>_list', array(
+            '<?= strtolower($model['name']) ?>_list' => $<?= strtolower($model['name']) ?>_list,
         ));
     }
 
 
-    protected function display_<?= $model['table_name'] ?>($virtual_name)
+    protected function display_<?= strtolower($model['name']) ?>($virtual_name)
     {
-        $<?= $model['table_name'] ?> = Model_<?= $model['name'] ?>::find('first', array(
+        $<?= strtolower($model['name']) ?> = Model_<?= $model['name'] ?>::find('first', array(
             'where' => array(
                 array('<?= $model['column_prefix'] ?>virtual_name', '=', $virtual_name)
             )
         ));
 
-        if (empty($<?= $model['table_name'] ?>)) {
+        if (empty($<?= strtolower($model['name']) ?>)) {
             throw new \Nos\NotFoundException();
         }
 
-        $this->main_controller->setTitle($<?= $model['table_name'] ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
-        //$this->main_controller->setMetaDescription($<?= $model['table_name'] ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
+        $this->main_controller->setTitle($<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
+        //$this->main_controller->setMetaDescription($<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
 
-        return \View::forge('front/<?= $model['table_name'] ?>_item', array(
-            '<?= $model['table_name'] ?>' => $<?= $model['table_name'] ?>,
+        return \View::forge('front/<?= strtolower($model['name']) ?>_item', array(
+            '<?= strtolower($model['name']) ?>' => $<?= strtolower($model['name']) ?>,
         ));
     }
 
