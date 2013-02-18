@@ -64,8 +64,8 @@ foreach ($model['fields'] as $field) {
                 'grid' => true,
                 'toolbar-edit' => true,
             ),
-            'enabled' => function($item) {
-                return true;
+            'disabled' => function($item) {
+                return false;
             },
             'visible' => function($params) {
                 return !isset($params['item']) || !$params['item']->is_new();
@@ -92,8 +92,8 @@ foreach ($model['fields'] as $field) {
                 'grid' => true,
                     'toolbar-edit' => true,
                 ),
-                'enabled' => function($item) {
-                        return true;
+                'disabled' => function($item) {
+                        return false;
                 },
                 'visible' => function($params) {
                         return !isset($params['item']) || !$params['item']->is_new();
