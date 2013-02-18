@@ -46,12 +46,44 @@ $options = array(
                     'content' => render('noviusos_appwizard::admin/form/basic/generate_options', false),
                 ), false); ?>
             <button class="primary"><?= __('Generate') ?></button>
-            <div class="installation_successful">
+            <div class="installation_successful blank_slate">
                 <h2>
-                    <?= __('You now have a brand new application') ?>
+                    <?= __('You now have a brand new application. What’s next?') ?>
                 </h2>
                 <div class="sql">
-                    <?= __('(FYI: the SQL installation file is to be found at the root of the application.)') ?>
+                    <p>
+                        <?= __('(FYI: the SQL installation file is to be found at the root of the application.)') ?>
+                    </p>
+                    <p>
+                        <?= _('You may now:') ?>
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/add_field.html') ?>" target="_blank">
+                                <?= _('Add a new field to your application.') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/change_appearance.html') ?>" target="_blank">
+                                <?= _('Change the default display in the front-office.') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/add_action.html') ?>" target="_blank">
+                                <?= _('Add a new action in the back-office.') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/front_event.html') ?>" target="_blank">
+                                <?= _('Change a behaviour in the front-office.') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/extending.html') ?>" target="_blank">
+                                <?= _('Learn how to extend your application.') ?>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -19,6 +19,22 @@
     display: none;
 }
 
+.installation_successful p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.installation_successful ul {
+    margin-top: 20px;
+}
+
+.installation_successful li {
+    margin-top: 5px;
+    list-style-type: disc !important;
+    margin-left: 30px;
+    padding-left: 10px;
+}
+
 .installation_successful.done {
     display: block;
 }
