@@ -23,7 +23,8 @@ foreach ($model['fields'] as $field) {
                     'model' => $model,
                     'data' => $data,
                     'config' => $config,
-                ));
+                )
+            );
         } else {
             if (!isset($fieldsByCategory[$field['category']])) {
                 $fieldsByCategory[$field['category']] = array();
@@ -78,13 +79,18 @@ if (isset($viewsByCategoryType['main'])) {
 }
 ?>
 <?php
-if (isset($viewsByCategoryType['menu'])) {
+if (isset($viewsByCategoryType['menu']) || isset($model['has_url_enhancer'])) {
     echo "        'menu' => array(\n";
-    echo \Nos\AppWizard\Application_Generator::indent(
-        '            ',
-        implode("\n", $viewsByCategoryType['menu'])
-    );
-    echo "\n";
+    if (isset($model['has_url_enhancer'])) {
+        echo "            __('URL') => array('" . $model['column_prefix'] . "virtual_name'),\n";
+    }
+    if (isset($viewsByCategoryType['menu'])) {
+        echo \Nos\AppWizard\Application_Generator::indent(
+            '            ',
+            implode("\n", $viewsByCategoryType['menu'])
+        );
+        echo "\n";
+    }
     echo "        ),\n";
 }
 ?>
@@ -111,6 +117,20 @@ foreach ($model['fields'] as $field) {
         )
     );
     echo "\n";
+}
+?>
+<?php if (isset($model['has_url_enhancer'])) {
+        echo <<<MYDELIMITER
+        '{$model['column_prefix']}virtual_name' => array(
+            'label' => __('URL: '),
+            'renderer' => 'Nos\Renderer_Virtualname',
+            'validation' => array(
+                'required',
+                'min_length' => array(2),
+            ),
+        ),
+MYDELIMITER;
+        echo "\n";
 }
 ?>
         'save' => array(

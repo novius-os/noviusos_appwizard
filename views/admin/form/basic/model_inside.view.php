@@ -18,5 +18,11 @@
             </label>
             <input type="text" name="column_prefix" class="column_prefix" />
         </div>
+        <div class="labelled_input has_url_enhancer">
+            <label>
+                <?= __('Add an url enhancer ?') ?>
+            </label>
+            <input type="checkbox" name="has_url_enhancer" />
+        </div>
     </div>
 </div>

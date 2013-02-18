@@ -8,6 +8,6 @@
 ),
 'thumbnailAlternate' => array(
     'value' => function ($item) {
-        return '/static/apps/test/img/64/icon.png';
+        return 'static/apps/<?= $data['application_settings']['folder'] ?>/img/64/icon.png';
     }
 ),
