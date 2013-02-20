@@ -12,6 +12,12 @@ namespace Nos\AppWizard;
 
 class Controller_Admin_Application extends \Nos\Controller_Admin_Application
 {
+    public function prepare_i18n()
+    {
+        parent::prepare_i18n();
+        \Nos\I18n::current_dictionary('noviusos_appwizard::common');
+    }
+
     public function action_index()
     {
         return \View::forge('noviusos_appwizard::admin/form/basic/form', array('config' => $this->config['basic']), false);

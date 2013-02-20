@@ -1,3 +1,6 @@
+<?php
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+?>
 <div class="categories">
     <div class="categories_list input_list" data-key="categories">
     </div>

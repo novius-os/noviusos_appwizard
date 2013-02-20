@@ -1,3 +1,6 @@
+<?php
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+?>
 <div class="model_fields input_list" data-key="fields">
     <div class="model_fields_list">
     </div>

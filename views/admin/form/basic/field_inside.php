@@ -1,3 +1,6 @@
+<?php
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+?>
 <div class="field_item input_item">
     <div class="labelled_input">
         <label>

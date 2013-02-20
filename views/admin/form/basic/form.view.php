@@ -1,4 +1,6 @@
 <?php
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+
 $form_id = uniqid('appwizard_');
 
 $i18n = array(

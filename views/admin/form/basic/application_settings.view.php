@@ -1,3 +1,6 @@
+<?php
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+?>
 <div class="labelled_input">
     <label>
         <?= __('Application name (e.g. My Application):') ?>
