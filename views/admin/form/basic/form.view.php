@@ -55,32 +55,35 @@ $options = array(
                         <?= __('(FYI: the SQL installation file is to be found at the root of the application.)') ?>
                     </p>
                     <p>
-                        <?= _('You may now:') ?>
+                        <?= __('You may now:') ?>
                     </p>
                     <ul>
                         <li>
-                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/add_field.html') ?>" target="_blank">
-                                <?= _('Add a new field to your application.') ?>
+                            <?php
+                            // Note to translator: Link to Novius OS documentation. Only the subdomain has to be changed, e.g. docs-fr.novius-os.org.
+                            ?>
+                            <a href="<?= __('http://docs.novius-os.org/en/0.2/app_extend/add_field.html') ?>" target="_blank">
+                                <?= __('Add a new field to your application.') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/change_appearance.html') ?>" target="_blank">
-                                <?= _('Change the default display in the front-office.') ?>
+                            <a href="<?= __('http://docs.novius-os.org/en/0.2/app_extend/change_appearance.html') ?>" target="_blank">
+                                <?= __('Change the default display in the front-office.') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/add_action.html') ?>" target="_blank">
-                                <?= _('Add a new action in the back-office.') ?>
+                            <a href="<?= __('http://docs.novius-os.org/en/0.2/app_extend/add_action.html') ?>" target="_blank">
+                                <?= __('Add a new action in the back-office.') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/front_event.html') ?>" target="_blank">
-                                <?= _('Change a behaviour in the front-office.') ?>
+                            <a href="<?= __('http://docs.novius-os.org/en/0.2/app_extend/front_event.html') ?>" target="_blank">
+                                <?= __('Change a behaviour in the front-office.') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= _('http://docs.novius-os.org/en/0.2/app_extend/extending.html') ?>" target="_blank">
-                                <?= _('Learn how to extend your application.') ?>
+                            <a href="<?= __('http://docs.novius-os.org/en/0.2/app_extend/extending.html') ?>" target="_blank">
+                                <?= __('Learn how to extend your application.') ?>
                             </a>
                         </li>
                     </ul>

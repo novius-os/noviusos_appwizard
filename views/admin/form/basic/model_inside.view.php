@@ -20,7 +20,7 @@
         </div>
         <div class="labelled_input has_url_enhancer">
             <label>
-                <?= __('Add an url enhancer ?') ?>
+                <?= __('Add an URL enhancer?') ?>
             </label>
             <input type="checkbox" name="has_url_enhancer" />
         </div>

@@ -21,7 +21,7 @@ class Controller_Admin_Application extends \Nos\Controller_Admin_Application
     {
         $application_informations = Application_Generator::generate($this->config['basic'], \Input::post());
         \Response::json(array(
-            'notify' => __('Bravo! Your application has been created. We hope you’ll like it.'),
+            'notify' => __('Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.'),
             'application_informations' => $application_informations,
             'dispatchEvent' => array(
                 'name' => 'Nos\\Application',

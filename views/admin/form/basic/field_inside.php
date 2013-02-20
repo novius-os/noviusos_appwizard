@@ -52,7 +52,7 @@ foreach ($config['fields'] as $key => $val) {
             <div class="crud_other_options">
                 <div class="labelled_input">
                     <label>
-                        <?= __('Field group') ?>
+                        <?= __('Fields group') ?>
                     </label>
                     <select name="category" class="category_type">
                     </select>
