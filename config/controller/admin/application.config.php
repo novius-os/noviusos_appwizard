@@ -8,6 +8,8 @@
  * @link http://www.novius-os.org
  */
 
+Nos\I18n::current_dictionary('noviusos_appwizard::common');
+
 return array(
     'basic' => array(
         'form_path' => 'noviusos_appwizard::admin/form/basic',

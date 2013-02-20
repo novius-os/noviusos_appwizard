@@ -77,3 +77,12 @@ h1.appwizard {
 .appwizard .has_url_enhancer{
     margin-top: 5px;
 }
+
+.appwizard .blank_slate li {
+    margin: 1em 0;
+    list-style: square;
+}
+
+.appwizard .blank_slate .sql p:first-child {
+     margin-bottom: 2em;
+ }
