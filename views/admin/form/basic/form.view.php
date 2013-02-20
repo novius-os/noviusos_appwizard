@@ -27,7 +27,7 @@ $options = array(
     <div class="tabs fill-parent" style="width: 92.4%; clear:both; margin:30px auto 1em;display:none;padding:0;">
         <ul style="width: 15%;">
             <li><a href="#general_application_settings"><?= __('Step 1. Main properties') ?></a></li>
-            <li><a href="#compile"><?= __('Step 2. Create') ?></a></li>
+            <li><a href="#compile"></a></li>
         </ul>
         <div id="general_application_settings">
             <?= render('nos::form/expander', array(

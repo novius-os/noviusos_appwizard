@@ -18,7 +18,7 @@
     </div>
     <div class="labelled_input">
         <label>
-            <?= __('Type') ?>
+            <?= __('Type:') ?>
         </label>
         <select name="type">
 <?php
