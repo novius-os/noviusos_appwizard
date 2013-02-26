@@ -1,7 +1,7 @@
 '<?= Inflector::friendly_title($category['name'], '_', true, false) ?>' => array(
     'view' => 'nos::form/expander',
     'params' => array(
-        'title'   => __('<?= $category['name'] ?>'),
+        'title'   => __(<?= var_export($category['name']) ?>),
         'nomargin' => true,
         'options' => array(
             'allowExpand' => false,
@@ -14,7 +14,7 @@
 $fieldsName = array();
 foreach ($fields as $field) {
     $fieldsName[] = render(
-        $config['generation_path'].'/fields/crud/name/'.$field['type'],
+        $config['fields'][$field['type']]['views']['crud_name'],
         array(
             'field' => $field,
             'model' => $model,

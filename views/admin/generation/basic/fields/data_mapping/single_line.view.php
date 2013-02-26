@@ -1,3 +1,3 @@
-'<?= $model['column_prefix'].$field['name'] ?>' => array(
-    'title' => __('<?= \Inflector::humanize($field['name']) ?>'),
+'<?= $model['column_prefix'].$field['column_name'] ?>' => array(
+    'title' => __(<?= var_export($field['label']) ?>),
 ),

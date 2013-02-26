@@ -1,19 +1,26 @@
 <?php
+/**
+ * NOVIUS OS - Web OS for digital communication
+ *
+ * @copyright  2011 Novius
+ * @license    GNU Affero General Public License v3 or (at your option) any later version
+ *             http://www.gnu.org/licenses/agpl-3.0.html
+ * @link http://www.novius-os.org
+ */
+
 return array(
-    'name'    => 'Application wizard',
+    'name'    => '‘Build your app’ wizard',
     'version' => '0.1',
-    'icon16'  => 'static/apps/noviusos_appwizard/img/appwizard-16.png',
-    'icon64'  => 'static/apps/noviusos_appwizard/img/appwizard-64.png',
     'provider' => array(
         'name' => 'Novius OS',
     ),
     'namespace' => 'Nos\AppWizard',
     'permission' => array(
-
     ),
+    'i18n_file' => 'noviusos_appwizard::metadata',
     'launchers' => array(
         'noviusos_appwizard' => array(
-            'name'    => 'Application wizard',
+            'name'    => '‘Build your app’ wizard',
             'action' => array(
                 'action' => 'nosTabs',
                 'tab' => array(
@@ -23,8 +30,8 @@ return array(
         ),
     ),
     'icons' => array(
-        64 => '/static/apps/noviusos_appwizard/img/appwizard-64.png',
-        32 => '/static/apps/noviusos_appwizard/img/appwizard-32.png',
-        16 => '/static/apps/noviusos_appwizard/img/appwizard-16.png',
+        16 => 'static/apps/noviusos_appwizard/img/icons/appwizard-16.png',
+        32 => 'static/apps/noviusos_appwizard/img/icons/appwizard-32.png',
+        64 => 'static/apps/noviusos_appwizard/img/icons/appwizard-64.png',
     ),
 );

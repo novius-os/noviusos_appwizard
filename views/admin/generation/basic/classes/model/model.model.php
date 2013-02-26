@@ -27,17 +27,17 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
             'publication_bool_property' => '<?= $model['column_prefix'] ?>_published',
         ),
         */
-        /*
+<?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Urlenhancer' => array(
-            'enhancers' => array(),
+            'enhancers' => array('<?= $data['application_settings']['folder'] ?>_<?= strtolower($model['name']) ?>'),
         ),
-        */
-        /*
+<?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
+<?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Virtualname' => array(
             'events' => array('before_save', 'after_save'),
-            'virtual_name_property' => '<?= $model['column_prefix'] ?>_virtual_name',
+            'virtual_name_property' => '<?= $model['column_prefix'] ?>virtual_name',
         ),
-        */
+<?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
         /*
         'Nos\Orm_Behaviour_Twinnable' => array(
             'events' => array('before_insert', 'after_insert', 'before_save', 'after_delete', 'change_parent'),

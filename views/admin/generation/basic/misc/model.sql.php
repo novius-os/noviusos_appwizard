@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `<?= $model['table_name'] ?>` (
 <?php
 foreach ($model['fields'] as $field) {
     $view = render(
-        $config['generation_path'].'/fields/sql/'.$field['type'],
+        $config['fields'][$field['type']]['views']['sql'],
         array(
             'model' => $model,
             'field' => $field,
@@ -18,9 +18,14 @@ foreach ($model['fields'] as $field) {
     }
 }
 ?>
-    `<?= $model['column_prefix'] ?>created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+<?php
+if (isset($model['has_url_enhancer'])) {
+    echo '    `' . $model['column_prefix'] . "virtual_name` varchar(30) NOT NULL,\n";
+}
+?>
+    `<?= $model['column_prefix'] ?>created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`<?= $model['column_prefix'] ?>id`),
     KEY `<?= $model['column_prefix'] ?>created_at` (`<?= $model['column_prefix'] ?>created_at`),
     KEY `<?= $model['column_prefix'] ?>updated_at` (`<?= $model['column_prefix'] ?>updated_at`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

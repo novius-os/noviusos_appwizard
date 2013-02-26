@@ -1,2 +1,2 @@
 <?php
-echo 'wysiwygs->'.$field['name'].'->wysiwyg_text';
+echo 'wysiwygs->'.$field['column_name'].'->wysiwyg_text';

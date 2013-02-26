@@ -5,16 +5,26 @@ $content = array();
 
 $fieldsByCategory = array();
 $title_field = null;
+$medias = array();
 foreach ($model['fields'] as $field) {
     if (isset($field['is_on_crud']) && $field['is_on_crud']) {
         if (isset($field['is_title']) && $field['is_title']) {
-            $title_field = render($config['generation_path'].'/fields/crud/name/'.$field['type'],
+            $title_field = render($config['fields'][$field['type']]['views']['crud_name'],
                 array(
                     'field' => $field,
                     'model' => $model,
                     'data' => $data,
                     'config' => $config,
                 ));
+        } elseif ($field['type'] == 'image') {
+            $medias[] = render($config['fields'][$field['type']]['views']['crud_name'],
+                array(
+                    'field' => $field,
+                    'model' => $model,
+                    'data' => $data,
+                    'config' => $config,
+                )
+            );
         } else {
             if (!isset($fieldsByCategory[$field['category']])) {
                 $fieldsByCategory[$field['category']] = array();
@@ -25,21 +35,23 @@ foreach ($model['fields'] as $field) {
 }
 
 $viewsByCategoryType = array();
-for ($i = 0; $i < count($model['categories']); $i++) {
-    $categoryType = $model['categories'][$i]['type'];
-    if (!isset($viewsByCategoryType[$categoryType])) {
-        $viewsByCategoryType[$categoryType] = array();
+if (isset($model['categories'])) {
+    for ($i = 0; $i < count($model['categories']); $i++) {
+        $categoryType = $model['categories'][$i]['type'];
+        if (!isset($viewsByCategoryType[$categoryType])) {
+            $viewsByCategoryType[$categoryType] = array();
+        }
+        $viewsByCategoryType[$categoryType][] = render(
+            $config['generation_path'].'/misc/categories/'.$categoryType,
+            array(
+                'fields' => isset($fieldsByCategory[$i]) ? $fieldsByCategory[$i] : array(),
+                'model' => $model,
+                'category' => $model['categories'][$i],
+                'config' => $config,
+                'data' => $data
+            )
+        );
     }
-    $viewsByCategoryType[$categoryType][] = render(
-        $config['generation_path'].'/misc/categories/'.$categoryType,
-        array(
-            'fields' => isset($fieldsByCategory[$i]) ? $fieldsByCategory[$i] : array(),
-            'model' => $model,
-            'category' => $model['categories'][$i],
-            'config' => $config,
-            'data' => $data
-        )
-    );
 }
 ?>
 return array(
@@ -51,6 +63,9 @@ return array(
 <?php
 if ($title_field !== null) {
     echo "        'title' => '".$title_field."',\n";
+}
+if (count($medias) > 0) {
+    echo "        'medias' => array('".implode("', '", $medias)."'),\n";
 }
 
 if (isset($viewsByCategoryType['main'])) {
@@ -64,13 +79,18 @@ if (isset($viewsByCategoryType['main'])) {
 }
 ?>
 <?php
-if (isset($viewsByCategoryType['menu'])) {
+if (isset($viewsByCategoryType['menu']) || isset($model['has_url_enhancer'])) {
     echo "        'menu' => array(\n";
-    echo \Nos\AppWizard\Application_Generator::indent(
-        '            ',
-        implode("\n", $viewsByCategoryType['menu'])
-    );
-    echo "\n";
+    if (isset($model['has_url_enhancer'])) {
+        echo "            __('URL') => array('" . $model['column_prefix'] . "virtual_name'),\n";
+    }
+    if (isset($viewsByCategoryType['menu'])) {
+        echo \Nos\AppWizard\Application_Generator::indent(
+            '            ',
+            implode("\n", $viewsByCategoryType['menu'])
+        );
+        echo "\n";
+    }
     echo "        ),\n";
 }
 ?>
@@ -87,7 +107,7 @@ if (isset($viewsByCategoryType['menu'])) {
 foreach ($model['fields'] as $field) {
     echo \Nos\AppWizard\Application_Generator::indent(
         '        ',
-        render($config['generation_path'].'/fields/crud/config/'.$field['type'],
+        render($config['fields'][$field['type']]['views']['crud_config'],
             array(
                 'field' => $field,
                 'model' => $model,
@@ -99,18 +119,33 @@ foreach ($model['fields'] as $field) {
     echo "\n";
 }
 ?>
+<?php if (isset($model['has_url_enhancer'])) {
+        echo <<<MYDELIMITER
+        '{$model['column_prefix']}virtual_name' => array(
+            'label' => __('URL: '),
+            'renderer' => 'Nos\Renderer_Virtualname',
+            'validation' => array(
+                'required',
+                'min_length' => array(2),
+            ),
+        ),
+MYDELIMITER;
+        echo "\n";
+}
+?>
         'save' => array(
             'label' => '',
             'form' => array(
                 'type' => 'submit',
                 'tag' => 'button',
+                // Note to translator: This is a submit button
                 'value' => __('Save'),
                 'class' => 'primary',
                 'data-icon' => 'check',
             ),
         ),
     )
-    /*
+    /* UI texts sample
     'messages' => array(
         'successfully added' => __('Item successfully added.'),
         'successfully saved' => __('Item successfully saved.'),
@@ -128,11 +163,12 @@ foreach ($model['fields'] as $field) {
     ),
     */
     /*
+    Tab configuration sample
     'tab' => array(
-        'iconUrl' => 'static/apps/{{application_name}}/img/16/post.png',
+        'iconUrl' => 'static/apps/{{application_name}}/img/16/icon.png',
         'labels' => array(
-            'insert' => __('Add a post'),
-            'blankSlate' => __('Translate a post'),
+            'insert' => __('Add a item'),
+            'blankSlate' => __('Translate a item'),
         ),
     ),
     */
