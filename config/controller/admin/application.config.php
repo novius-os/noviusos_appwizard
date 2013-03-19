@@ -164,19 +164,24 @@ return array(
         ),
         'fields' => array(
             'single_line' => array(
-                'label' => __('Single line text'),
+                'label'                 => __('Single line text'),
+                'on_model_properties'   => true
             ),
             'wysiwyg' => array(
-                'label' => __('WYSIWYG text editor')
+                'label'                 => __('WYSIWYG text editor'),
+                'on_model_properties'   => false
             ),
             'text' => array(
-                'label' => __('Paragraph text')
+                'label'                 => __('Paragraph text'),
+                'on_model_properties'   => true
             ),
             'checkbox' => array(
-                'label' => __('Checkbox')
+                'label'                 => __('Checkbox'),
+                'on_model_properties'   => true
             ),
             'image' => array(
-                'label' => __('Image from Media Centre')
+                'label'                 => __('Image from Media Centre'),
+                'on_model_properties'   => false
             ),
 
         )

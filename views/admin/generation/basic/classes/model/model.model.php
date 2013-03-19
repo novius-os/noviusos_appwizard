@@ -1,4 +1,17 @@
-<?= "<?php\n" ?>
+<?php
+$properties = array();
+$properties[] = var_export($model['column_prefix'].'id', true);
+
+foreach ($model['fields'] as $field) {
+    if ($config['fields'][$field['type']]['on_model_properties']) {
+        $properties[] = var_export($model['column_prefix'].$field['column_name'], true);
+    }
+}
+
+$properties[] = var_export($model['column_prefix'].'created_at', true);
+$properties[] = var_export($model['column_prefix'].'updated_at', true);
+echo "<?php\n";
+?>
 
 namespace <?= $data['application_settings']['namespace'] ?>;
 
@@ -7,6 +20,10 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
 
     protected static $_primary_key = array('<?= $model['column_prefix'] ?>id');
     protected static $_table_name = '<?= $model['table_name'] ?>';
+
+    protected static $_properties = array(
+        <?= implode(",\n        ", $properties)."\n" ?>
+    );
 
     protected static $_observers = array(
         'Orm\Observer_CreatedAt' => array(
