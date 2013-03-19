@@ -33,6 +33,7 @@ return array(
             'static/img/16',
             'static/img/32',
             'static/img/64',
+            'migrations',
         ),
         'files' =>
             function($root_dir, $data, $config)
@@ -80,9 +81,15 @@ return array(
                     'destination' => 'config/metadata.config.php',
                     'data' => array('data' => $data, 'config' => $config),
                 );
+
                 $files[] = array(
-                    'template' => 'install.sql',
-                    'destination' => 'install.sql',
+                    'template' => 'migrations/001_install',
+                    'destination' => 'migrations/001_install.php',
+                    'data' => array('data' => $data, 'config' => $config),
+                );
+                $files[] = array(
+                    'template' => 'migrations/001_install.sql',
+                    'destination' => 'migrations/001_install.sql',
                     'data' => array('data' => $data, 'config' => $config),
                 );
 

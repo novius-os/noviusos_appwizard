@@ -42,12 +42,6 @@ class Application_Generator
         static::generateFolders($root_dir, $config['folders']);
         static::generateFiles($root_dir, $config, $input);
         if (!empty($input['generation_options']['install'])) {
-            $sql = file_get_contents($root_dir.'/install.sql');
-            $queries = (explode(";\n", $sql));
-            array_pop($queries);
-            foreach ($queries as $query) {
-                \DB::query($query)->execute();
-            }
             $application = \Nos\Application::forge($input['application_settings']['folder']);
             $application->install();
         }
