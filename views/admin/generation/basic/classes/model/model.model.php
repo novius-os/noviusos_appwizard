@@ -41,7 +41,9 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
     protected static $_behaviours = array(
         /*
         'Nos\Orm_Behaviour_Publishable' => array(
-            'publication_bool_property' => '<?= $model['column_prefix'] ?>_published',
+            'publication_state_property' => '<?= $model['column_prefix'] ?>_publication_status',
+            'publication_start_property' => '<?= $model['column_prefix'] ?>_publication_start',
+            'publication_endproperty' => '<?= $model['column_prefix'] ?>_publication_end',
         ),
         */
 <?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
