@@ -2,9 +2,15 @@
 $properties = array();
 $properties[] = var_export($model['column_prefix'].'id', true);
 
+$title_property = null;
+
 foreach ($model['fields'] as $field) {
     if ($config['fields'][$field['type']]['on_model_properties']) {
-        $properties[] = var_export($model['column_prefix'].$field['column_name'], true);
+        $column_name = var_export($model['column_prefix'].$field['column_name'], true);
+        $properties[] = $column_name;
+        if (isset($field['is_title']) && $field['is_title']) {
+            $title_property = $column_name;
+        }
     }
 }
 
@@ -22,8 +28,14 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
     protected static $_table_name = '<?= $model['table_name'] ?>';
 
     protected static $_properties = array(
-        <?= implode(",\n        ", $properties)."\n" ?>
+        <?= implode(",\n        ", $properties).",\n" ?>
     );
+
+<?php
+if ($title_property !== null) {
+    echo '    protected static $_title_property = '.$title_property.";\n";
+}
+?>
 
     protected static $_observers = array(
         'Orm\Observer_CreatedAt' => array(
