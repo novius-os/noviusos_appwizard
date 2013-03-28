@@ -2,15 +2,10 @@
 $properties = array();
 $properties[] = var_export($model['column_prefix'].'id', true);
 
-$title_property = null;
-
 foreach ($model['fields'] as $field) {
     if ($config['fields'][$field['type']]['on_model_properties']) {
         $column_name = var_export($model['column_prefix'].$field['column_name'], true);
         $properties[] = $column_name;
-        if (isset($field['is_title']) && $field['is_title']) {
-            $title_property = $column_name;
-        }
     }
 }
 
@@ -32,8 +27,8 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
     );
 
 <?php
-if ($title_property !== null) {
-    echo '    protected static $_title_property = '.$title_property.";\n";
+if ($model['title_column_name'] !== null) {
+    echo '    protected static $_title_property = '.var_export($model['column_prefix'].$model['title_column_name'], true).";\n";
 }
 ?>
 
