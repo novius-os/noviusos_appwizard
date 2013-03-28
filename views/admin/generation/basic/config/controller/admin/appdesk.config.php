@@ -27,9 +27,7 @@ MYDELIMITER;
     echo "\n";
 }
 ?>
-    /*
-    'search_text' => 'post_title',
-    */
+    'search_text' => <?= var_export($model['column_prefix'].$model['title_column_name'], true) ?>,
     /*
     'inspectors' => array(
         'author',
