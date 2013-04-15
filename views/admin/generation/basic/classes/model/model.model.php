@@ -34,12 +34,10 @@ if ($model['title_column_name'] !== null) {
 
     protected static $_observers = array(
         'Orm\Observer_CreatedAt' => array(
-            'events' => array('before_insert'),
             'mysql_timestamp' => true,
             'property'=>'<?= $model['column_prefix'] ?>created_at'
         ),
         'Orm\Observer_UpdatedAt' => array(
-            'events' => array('before_save'),
             'mysql_timestamp' => true,
             'property'=>'<?= $model['column_prefix'] ?>updated_at'
         )
@@ -60,13 +58,11 @@ if ($model['title_column_name'] !== null) {
 <?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
 <?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Virtualname' => array(
-            'events' => array('before_save', 'after_save'),
             'virtual_name_property' => '<?= $model['column_prefix'] ?>virtual_name',
         ),
 <?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
         /*
         'Nos\Orm_Behaviour_Twinnable' => array(
-            'events' => array('before_insert', 'after_insert', 'before_save', 'after_delete', 'change_parent'),
             'context_property'      => '<?= $model['column_prefix'] ?>_context',
             'common_id_property' => '<?= $model['column_prefix'] ?>_context_common_id',
             'is_main_property' => '<?= $model['column_prefix'] ?>_context_is_main',
