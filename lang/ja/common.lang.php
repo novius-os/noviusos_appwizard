@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 09/04/2013 16:13:10
+// Generated on 16/04/2013 19:15:50
 
 // 56 out of 56 messages are translated (100%).
 // 225 out of 225 words are translated (100%).
@@ -9,39 +9,8 @@ return array(
     #: classes/controller/admin/application.ctrl.php:30
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'おめでとうございます。アプリケーションが作成されました。このアプリケーションを Novius OS にインストールするには、ホームタブに移動して実行してください。',
 
-    #: config/controller/admin/application.config.php:152
-    'Main column' => 'メインカラム',
-
-    #: config/controller/admin/application.config.php:155
-    'Side column' => 'サイドカラム',
-
-    #: config/controller/admin/application.config.php:160
-    'Single line text' => 'テキスト(一行)',
-
-    #: config/controller/admin/application.config.php:163
-    'WYSIWYG text editor' => 'ビジュアルエディタ',
-
-    #: config/controller/admin/application.config.php:166
-    'Paragraph text' => 'テキスト(複数行)',
-
-    #: config/controller/admin/application.config.php:169
-    'Checkbox' => 'チェックボックス',
-
-    #: config/controller/admin/application.config.php:172
-    'Image from Media Centre' => 'メディアセンターの画像',
-
     #: views/admin/generation/basic/views/front/model_item.view.php:39
     'Back' => '戻る',
-
-    #: views/admin/form/basic/field.view.php:5
-    'Field' => 'フィールド',
-
-    #: views/admin/form/basic/category_inside.view.php:8
-    'Title (e.g. Properties):' => 'タイトル(例: プロパティ) :',
-
-    #: views/admin/form/basic/category_inside.view.php:14
-    #: views/admin/form/basic/field_inside.php:25
-    'Type:' => 'タイプ :',
 
     #: views/admin/form/basic/model_inside.view.php:8
     'Name (e.g. Monkey):' => '名前(例: モンキー) :',
@@ -55,46 +24,18 @@ return array(
     #: views/admin/form/basic/model_inside.view.php:26
     'Add an URL enhancer?' => 'URL エンハンサを追加しますか？',
 
-    #: views/admin/form/basic/generate_options.view.php:6
-    'Install the application on this Novius OS?' => 'この Novius OS にアプリケーションをインストールしますか？',
-
-    #: views/admin/form/basic/model.view.php:5
-    'Model' => 'モデル',
-
-    #: views/admin/form/basic/field_inside.php:7
-    'Label (e.g. Title):' => 'ラベル(例: タイトル) :',
-
-    #: views/admin/form/basic/field_inside.php:13
-    'Column name (without prefix; e.g. title):' => 'カラム名(プレフィックスは付けない、例: title) :',
-
-    #: views/admin/form/basic/field_inside.php:19
-    'Use label' => 'ラベルを使用する',
-
-    #: views/admin/form/basic/field_inside.php:39
-    'Is the form title' => 'フォームのタイトル',
-
-    #: views/admin/form/basic/field_inside.php:45
-    'Shows in the main grid of the App Desk' => 'App Deskのメイングリッドに表示する',
-
-    #: views/admin/form/basic/field_inside.php:51
-    'Shows in the add/update forms' => '追加／更新フォームに表示する',
-
-    #: views/admin/form/basic/field_inside.php:58
-    #: views/admin/form/basic/category.view.php:5
-    'Fields group' => 'フィールドグループ',
-
+    #: views/admin/form/basic/models.view.php:7
     #: views/admin/form/basic/fields.view.php:7
     #: views/admin/form/basic/categories.view.php:7
-    #: views/admin/form/basic/models.view.php:7
     'Next step' => '次のステップ',
 
+    #: views/admin/form/basic/models.view.php:7
     #: views/admin/form/basic/fields.view.php:7
     #: views/admin/form/basic/categories.view.php:7
-    #: views/admin/form/basic/models.view.php:7
     'or' => 'または',
 
-    #: views/admin/form/basic/fields.view.php:7
-    'Add another field' => 'フィールドを追加する',
+    #: views/admin/form/basic/models.view.php:7
+    'Add another model' => 'モデルを追加する',
 
     #: views/admin/form/basic/form.view.php:7
     'Step {{num}}. ({{modelName}}) Fields layout' => 'ステップ {{num}}。({{modelName}}) フィールドレイアウト',
@@ -167,11 +108,46 @@ return array(
     #: views/admin/form/basic/form.view.php:88
     'Learn how to extend your application.' => 'アプリケーションを拡張する方法を学ぶ',
 
+    #: views/admin/form/basic/category_inside.view.php:8
+    'Title (e.g. Properties):' => 'タイトル(例: プロパティ) :',
+
+    #: views/admin/form/basic/category_inside.view.php:14
+    #: views/admin/form/basic/field_inside.php:25
+    'Type:' => 'タイプ :',
+
+    #: views/admin/form/basic/field.view.php:5
+    'Field' => 'フィールド',
+
+    #: views/admin/form/basic/fields.view.php:7
+    'Add another field' => 'フィールドを追加する',
+
+    #: views/admin/form/basic/field_inside.php:7
+    'Label (e.g. Title):' => 'ラベル(例: タイトル) :',
+
+    #: views/admin/form/basic/field_inside.php:13
+    'Column name (without prefix; e.g. title):' => 'カラム名(プレフィックスは付けない、例: title) :',
+
+    #: views/admin/form/basic/field_inside.php:19
+    'Use label' => 'ラベルを使用する',
+
+    #: views/admin/form/basic/field_inside.php:39
+    'Is the form title' => 'フォームのタイトル',
+
+    #: views/admin/form/basic/field_inside.php:45
+    'Shows in the main grid of the App Desk' => 'App Deskのメイングリッドに表示する',
+
+    #: views/admin/form/basic/field_inside.php:51
+    'Shows in the add/update forms' => '追加／更新フォームに表示する',
+
+    #: views/admin/form/basic/field_inside.php:58
+    #: views/admin/form/basic/category.view.php:5
+    'Fields group' => 'フィールドグループ',
+
+    #: views/admin/form/basic/generate_options.view.php:6
+    'Install the application on this Novius OS?' => 'この Novius OS にアプリケーションをインストールしますか？',
+
     #: views/admin/form/basic/categories.view.php:7
     'Add another fields group' => 'フィールドグループを追加する',
-
-    #: views/admin/form/basic/models.view.php:7
-    'Add another model' => 'モデルを追加する',
 
     #: views/admin/form/basic/application_settings.view.php:6
     'Application name (e.g. My Application):' => 'アプリケーション名(例: マイアプリケーション) :',
@@ -181,5 +157,29 @@ return array(
 
     #: views/admin/form/basic/application_settings.view.php:18
     'Application namespace (e.g. MyApplication):' => 'アプリケーションの名前空間(例: MyApplication) :',
+
+    #: views/admin/form/basic/model.view.php:5
+    'Model' => 'モデル',
+
+    #: config/controller/admin/application.config.php:159
+    'Main column' => 'メインカラム',
+
+    #: config/controller/admin/application.config.php:162
+    'Side column' => 'サイドカラム',
+
+    #: config/controller/admin/application.config.php:167
+    'Single line text' => 'テキスト(一行)',
+
+    #: config/controller/admin/application.config.php:171
+    'WYSIWYG text editor' => 'ビジュアルエディタ',
+
+    #: config/controller/admin/application.config.php:175
+    'Paragraph text' => 'テキスト(複数行)',
+
+    #: config/controller/admin/application.config.php:179
+    'Checkbox' => 'チェックボックス',
+
+    #: config/controller/admin/application.config.php:183
+    'Image from Media Centre' => 'メディアセンターの画像',
 
 );
