@@ -10,7 +10,7 @@
 
 return array(
     'name'    => '‘Build your app’ wizard',
-    'version' => '0.1',
+    'version' => 'chiba.1',
     'provider' => array(
         'name' => 'Novius OS',
     ),
