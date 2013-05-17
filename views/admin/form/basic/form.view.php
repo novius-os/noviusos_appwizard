@@ -47,7 +47,7 @@ $options = array(
                     'title' => __('Options'),
                     'content' => render('noviusos_appwizard::admin/form/basic/generate_options', false),
                 ), false); ?>
-            <button class="primary"><?= __('Generate') ?></button>
+            <button class="ui-priority-primary"><?= __('Generate') ?></button>
             <div class="installation_successful blank_slate">
                 <h2>
                     <?= __('You now have a brand new application. What’s next?') ?>
