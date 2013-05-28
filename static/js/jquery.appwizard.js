@@ -58,7 +58,7 @@ $.widget("nos.appwizard", {
                 var $addField = $panel.find('.add_field');
                 if ($addField.length > 0 && $panel.find('.field_item').length == 0) {
                     $addField.click();
-                    $panel.find('.is_on_appdesk').attr('checked', true);
+                    $panel.find('.is_on_appdesk').prop('checked', true);
                 }
             }
         });
@@ -284,8 +284,8 @@ $.widget("nos.appwizard", {
             var $crudOptions = $this.closest('.field_item').find('.crud_other_options');
             if ($this.is(':checked')) {
                 $crudOptions.addClass('inactive');
-                $isOnAppdeskCheckbox.attr('checked', true);
-                $isOnCrudCheckbox.attr('checked', true);
+                $isOnAppdeskCheckbox.prop('checked', true);
+                $isOnCrudCheckbox.prop('checked', true);
                 $fieldList.find('.is_title_area').addClass('inactive');
                 $this.closest('.is_title_area').removeClass('inactive');
             } else {
