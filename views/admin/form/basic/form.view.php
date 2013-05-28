@@ -12,11 +12,11 @@ $i18n = array(
 );
 
 $templates = array(
-    'model' => render('noviusos_appwizard::admin/form/basic/model', array('config' => $config), false),
-    'field' => render('noviusos_appwizard::admin/form/basic/field', array('config' => $config), false),
-    'categories' => render('noviusos_appwizard::admin/form/basic/categories', array('config' => $config), false),
-    'category' => render('noviusos_appwizard::admin/form/basic/category', array('config' => $config), false),
-    'fields' => render('noviusos_appwizard::admin/form/basic/fields', array('config' => $config), false),
+    'model'         => trim(render('noviusos_appwizard::admin/form/basic/model', array('config' => $config), false)),
+    'field'         => trim(render('noviusos_appwizard::admin/form/basic/field', array('config' => $config), false)),
+    'categories'    => trim(render('noviusos_appwizard::admin/form/basic/categories', array('config' => $config), false)),
+    'category'      => trim(render('noviusos_appwizard::admin/form/basic/category', array('config' => $config), false)),
+    'fields'        => trim(render('noviusos_appwizard::admin/form/basic/fields', array('config' => $config), false)),
 );
 
 $options = array(
