@@ -16,23 +16,23 @@ return array(
         'generation_path' => 'noviusos_appwizard::admin/generation/basic',
         'folders' => array(
             'classes',
-            'classes/controller',
-            'classes/controller/admin',
-            'classes/controller/front',
-            'classes/model',
+            'classes'.DS.'controller',
+            'classes'.DS.'controller'.DS.'admin',
+            'classes'.DS.'controller'.DS.'front',
+            'classes'.DS.'model',
             'config',
-            'config/controller',
-            'config/controller/admin',
-            'config/model',
-            'config/common',
+            'config'.DS.'controller',
+            'config'.DS.'controller'.DS.'admin',
+            'config'.DS.'model',
+            'config'.DS.'common',
             'views',
-            'views/admin',
-            'views/front',
+            'views'.DS.'admin',
+            'views'.DS.'front',
             'static',
-            'static/img',
-            'static/img/16',
-            'static/img/32',
-            'static/img/64',
+            'static'.DS.'img',
+            'static'.DS.'img'.DS.'16',
+            'static'.DS.'img'.DS.'32',
+            'static'.DS.'img'.DS.'64',
             'migrations',
         ),
         'files' =>
@@ -102,50 +102,50 @@ return array(
                         $model_data = array('model' => $model, 'data' => $data, 'config' => $config);
                         $files[] = array(
                             'template' => 'classes/controller/admin/appdesk.ctrl',
-                            'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/appdesk.ctrl.php',
+                            'destination' => 'classes'.DS.'controller'.DS.'admin'.DS.strtolower($model['name']).DS.'appdesk.ctrl.php',
                             'data' => $model_data,
                         );
                         $files[] = array(
                             'template' => 'classes/controller/admin/crud.ctrl',
-                            'destination' => 'classes/controller/admin/'.strtolower($model['name']).'/crud.ctrl.php',
+                            'destination' => 'classes'.DS.'controller'.DS.'admin'.DS.strtolower($model['name']).DS.'crud.ctrl.php',
                             'data' => $model_data,
                         );
                         if (isset($model['has_url_enhancer'])) {
                             $files[] = array(
                                 'template' => 'classes/controller/front.ctrl',
-                                'destination' => 'classes/controller/front/'.strtolower($model['name']).'.ctrl.php',
+                                'destination' => 'classes'.DS.'controller'.DS.'front'.DS.strtolower($model['name']).'.ctrl.php',
                                 'data' => $model_data,
                             );
                         }
                         $files[] = array(
                             'template' => 'classes/model/model.model',
-                            'destination' => 'classes/model/'.strtolower($model['name']).'.model.php',
+                            'destination' => 'classes'.DS.'model'.DS.strtolower($model['name']).'.model.php',
                             'data' => $model_data,
                         );
                         $files[] = array(
                             'template' => 'config/common/model.config',
-                            'destination' => 'config/common/'.strtolower($model['name']).'.config.php',
+                            'destination' => 'config'.DS.'common'.DS.strtolower($model['name']).'.config.php',
                             'data' => $model_data,
                         );
                         $files[] = array(
                             'template' => 'config/controller/admin/appdesk.config',
-                            'destination' => 'config/controller/admin/'.strtolower($model['name']).'/appdesk.config.php',
+                            'destination' => 'config'.DS.'controller'.DS.'admin'.DS.strtolower($model['name']).DS.'appdesk.config.php',
                             'data' => $model_data,
                         );
                         $files[] = array(
                             'template' => 'config/controller/admin/crud.config',
-                            'destination' => 'config/controller/admin/'.strtolower($model['name']).'/crud.config.php',
+                            'destination' => 'config'.DS.'controller'.DS.'admin'.DS.strtolower($model['name']).DS.'crud.config.php',
                             'data' => $model_data,
                         );
                         if (isset($model['has_url_enhancer'])) {
                             $files[] = array(
                                 'template' => 'views/front/model_item.view',
-                                'destination' => 'views/front/'.strtolower($model['name']).'_item.view.php',
+                                'destination' => 'views'.DS.'front'.DS.strtolower($model['name']).'_item.view.php',
                                 'data' => $model_data,
                             );
                             $files[] = array(
                                 'template' => 'views/front/model_list.view',
-                                'destination' => 'views/front/'.strtolower($model['name']).'_list.view.php',
+                                'destination' => 'views'.DS.'front'.DS.strtolower($model['name']).'_list.view.php',
                                 'data' => $model_data,
                             );
                         }

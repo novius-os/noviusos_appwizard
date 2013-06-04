@@ -9,9 +9,9 @@ return array(
     'permission' => array(
     ),
     'icons' => array( //@todo: to be defined
-        64 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/64/icon.png',
-        32 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/32/icon.png',
-        16 => '/static/apps/<?= $data['application_settings']['folder'] ?>/img/16/icon.png',
+        64 => 'static/apps/<?= $data['application_settings']['folder'] ?>/img/64/icon.png',
+        32 => 'static/apps/<?= $data['application_settings']['folder'] ?>/img/32/icon.png',
+        16 => 'static/apps/<?= $data['application_settings']['folder'] ?>/img/16/icon.png',
     ),
 <?php
 if (isset($data['models'])) {

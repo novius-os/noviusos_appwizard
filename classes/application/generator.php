@@ -60,8 +60,8 @@ class Application_Generator
     protected static function generateFolders($root_dir, $folders)
     {
         foreach ($folders as $folder) {
-            mkdir($root_dir.'/'.$folder, 0775);
-            chmod($root_dir.'/'.$folder, 0775);
+            mkdir($root_dir.DS.$folder, 0775);
+            chmod($root_dir.DS.$folder, 0775);
         }
     }
 
@@ -76,8 +76,8 @@ class Application_Generator
                     'data' => array('data' => $input, 'config' => $config),
                 );
             }
-            file_put_contents($root_dir.'/'.$file['destination'], render($config['generation_path'].'/'.$file['template'], $file['data'], false));
-            chmod($root_dir.'/'.$file['destination'], 0664);
+            file_put_contents($root_dir.DS.$file['destination'], render($config['generation_path'].'/'.$file['template'], $file['data'], false));
+            chmod($root_dir.DS.$file['destination'], 0664);
         }
     }
 }
