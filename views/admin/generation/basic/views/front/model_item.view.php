@@ -13,6 +13,7 @@ foreach ($model['fields'] as $field) {
     // Load dictionnary if we want to use __()
     // Nos\I18n::current_dictionary('<?= $data['application_settings']['folder'] ?>::common');
 <?= "?>\n" ?>
+<div class="<?= $data['application_settings']['folder'].'_'.strtolower($model['name']) ?> noviusos_enhancer">
 <h2><?= "<?=" ?> $<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?> <?= "?>" ?></h2>
 
 <?php
@@ -37,3 +38,4 @@ if (count($wysiwygs)) {
 ?>
 
 <a href="<?= "<?=" ?> \Nos\Nos::main_controller()->getPage()->url() <?= "?>" ?>"><?= __('Back') ?></a>
+</div>
