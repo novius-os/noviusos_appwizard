@@ -66,7 +66,7 @@ if ($model['title_column_name'] !== null) {
             'context_property'      => '<?= $model['column_prefix'] ?>_context',
             'common_id_property' => '<?= $model['column_prefix'] ?>_context_common_id',
             'is_main_property' => '<?= $model['column_prefix'] ?>_context_is_main',
-            'invariant_fields'   => array(),
+            'common_fields'   => array(),
         ),
         */
     );
