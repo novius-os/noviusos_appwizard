@@ -60,14 +60,16 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
         ));
     }
 
-
-    public static function get_url_model($item, $params = array())
+    public static function getUrlEnhanced($params = array())
     {
-        // url built according to $item'class
-        switch (get_class($item)) {
-            case '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>' :
-                return urlencode($item->virtual_name()).'.html';
-                break;
+        $item = \Arr::get($params, 'item', false);
+        if ($item) {
+            // url built according to $item'class
+            switch (get_class($item)) {
+                case '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>' :
+                    return urlencode($item->virtual_name()).'.html';
+                    break;
+            }
         }
 
         return false;
