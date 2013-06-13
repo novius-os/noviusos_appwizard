@@ -36,7 +36,7 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
 
         return \View::forge('front/<?= strtolower($model['name']) ?>_list', array(
             '<?= strtolower($model['name']) ?>_list' => $<?= strtolower($model['name']) ?>_list,
-        ));
+        ), false);
     }
 
 
@@ -57,7 +57,7 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
 
         return \View::forge('front/<?= strtolower($model['name']) ?>_item', array(
             '<?= strtolower($model['name']) ?>' => $<?= strtolower($model['name']) ?>,
-        ));
+        ), false);
     }
 
     public static function getUrlEnhanced($params = array())
