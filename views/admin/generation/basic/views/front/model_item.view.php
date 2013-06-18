@@ -22,7 +22,7 @@ if (count($medias)) {
 
     foreach ($medias as $media_name) {
         echo 'if (!empty($' . strtolower($model['name']) . "->medias->$media_name)) {\n";
-        echo '    echo \'<img src="\' . $' . strtolower($model['name']) . '->medias->' . $media_name . '->get_public_path_resized(400, 300) . \'" alt="" />\';'."\n";
+        echo '    echo ' . strtolower($model['name']) . '->medias->' . $media_name . '->get_img_tag_resized(400, 300);'."\n";
         echo "}\n";
     }
     echo "?>\n";
