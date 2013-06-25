@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 16/04/2013 19:15:50
+// Generated on 25/06/2013 11:06:52
 
 // 56 out of 56 messages are translated (100%).
 // 225 out of 225 words are translated (100%).
@@ -9,7 +9,7 @@ return array(
     #: classes/controller/admin/application.ctrl.php:30
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'Bravo&nbsp;! Votre application a été créée. Si vous avez choisi de l’installer sur ce Novius OS, allez vite sur l’onglet d´accueil pour la tester.',
 
-    #: views/admin/generation/basic/views/front/model_item.view.php:39
+    #: views/admin/generation/basic/views/front/model_item.view.php:40
     'Back' => 'Retour',
 
     #: views/admin/form/basic/model_inside.view.php:8
