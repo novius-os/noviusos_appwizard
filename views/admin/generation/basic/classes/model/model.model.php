@@ -1,4 +1,13 @@
 <?php
+/**
+ * NOVIUS OS - Web OS for digital communication
+ *
+ * @copyright  2011 Novius
+ * @license    GNU Affero General Public License v3 or (at your option) any later version
+ *             http://www.gnu.org/licenses/agpl-3.0.html
+ * @link http://www.novius-os.org
+ */
+
 $properties = array();
 $properties[] = var_export($model['column_prefix'].'id', true);
 
@@ -7,6 +16,10 @@ foreach ($model['fields'] as $field) {
         $column_name = var_export($model['column_prefix'].$field['column_name'], true);
         $properties[] = $column_name;
     }
+}
+
+if (isset($model['has_url_enhancer'])) {
+    $properties[] = var_export($model['column_prefix'].'virtual_name', true);
 }
 
 $properties[] = var_export($model['column_prefix'].'created_at', true);
