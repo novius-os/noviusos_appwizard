@@ -39,6 +39,14 @@ foreach ($model['fields'] as $field) {
         echo "\n";
     }
 }
+if (isset($model['has_twinnable_behaviour'])) {
+    echo "        'context' => true,\n";
+}
+
+if (isset($model['has_publishable_behaviour'])) {
+    echo "        'publication_status' => true,\n";
+}
+
 ?>
     ),
     /*

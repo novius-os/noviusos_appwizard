@@ -32,6 +32,24 @@ foreach ($model['fields'] as $field) {
 if (isset($model['has_url_enhancer'])) {
     echo '    `' . $model['column_prefix'] . "virtual_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,\n";
 }
+
+if (isset($model['has_twinnable_behaviour'])) {
+    echo '    `' . $model['column_prefix'] . "context` varchar(25) NOT NULL,\n";
+    echo '    `' . $model['column_prefix'] . "context_common_id` int(11) NOT NULL,\n";
+    echo '    `' . $model['column_prefix'] . "context_is_main` tinyint(1) NOT NULL DEFAULT '0',\n";
+}
+
+if (isset($model['has_publishable_behaviour'])) {
+    echo '    `' . $model['column_prefix'] . "publication_status` tinyint(1) NOT NULL,\n";
+    echo '    `' . $model['column_prefix'] . "publication_start` datetime DEFAULT NULL,\n";
+    echo '    `' . $model['column_prefix'] . "publication_end` datetime DEFAULT NULL,\n";
+}
+
+if (isset($model['has_author_behaviour'])) {
+    echo '    `' . $model['column_prefix'] . "created_by_id` INT UNSIGNED NULL,\n";
+    echo '    `' . $model['column_prefix'] . "updated_by_id` INT UNSIGNED NULL,\n";
+}
+
 ?>
     `<?= $model['column_prefix'] ?>created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
     `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

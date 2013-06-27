@@ -183,7 +183,10 @@ return array(
                 'label'                 => __('Image from Media Centre'),
                 'on_model_properties'   => false
             ),
-
+            'datetime' => array(
+                'label'                 => __('Date/Time input'),
+                'on_model_properties'   => true
+            ),
         )
     ),
 );

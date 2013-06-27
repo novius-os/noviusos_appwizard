@@ -22,6 +22,23 @@ if (isset($model['has_url_enhancer'])) {
     $properties[] = var_export($model['column_prefix'].'virtual_name', true);
 }
 
+if (isset($model['has_publishable_behaviour'])) {
+    $properties[] = var_export($model['column_prefix'].'publication_status', true);
+    $properties[] = var_export($model['column_prefix'].'publication_start', true);
+    $properties[] = var_export($model['column_prefix'].'publication_end', true);
+}
+
+if (isset($model['has_twinnable_behaviour'])) {
+    $properties[] = var_export($model['column_prefix'].'context', true);
+    $properties[] = var_export($model['column_prefix'].'context_common_id', true);
+    $properties[] = var_export($model['column_prefix'].'context_is_main', true);
+}
+
+if (isset($model['has_author_behaviour'])) {
+    $properties[] = var_export($model['column_prefix'].'created_by_id', true);
+    $properties[] = var_export($model['column_prefix'].'updated_by_id', true);
+}
+
 $properties[] = var_export($model['column_prefix'].'created_at', true);
 $properties[] = var_export($model['column_prefix'].'updated_at', true);
 echo "<?php\n";
@@ -57,13 +74,13 @@ if ($model['title_column_name'] !== null) {
     );
 
     protected static $_behaviours = array(
-        /*
+<?= isset($model['has_publishable_behaviour']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Publishable' => array(
-            'publication_state_property' => '<?= $model['column_prefix'] ?>_publication_status',
-            'publication_start_property' => '<?= $model['column_prefix'] ?>_publication_start',
-            'publication_endproperty' => '<?= $model['column_prefix'] ?>_publication_end',
+            'publication_state_property' => '<?= $model['column_prefix'] ?>publication_status',
+            'publication_start_property' => '<?= $model['column_prefix'] ?>publication_start',
+            'publication_end_property' => '<?= $model['column_prefix'] ?>publication_end',
         ),
-        */
+<?= isset($model['has_publishable_behaviour']) ? '' : "        */\n" ?>
 <?= isset($model['has_url_enhancer']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Urlenhancer' => array(
             'enhancers' => array('<?= $data['application_settings']['folder'] ?>_<?= strtolower($model['name']) ?>'),
@@ -74,14 +91,20 @@ if ($model['title_column_name'] !== null) {
             'virtual_name_property' => '<?= $model['column_prefix'] ?>virtual_name',
         ),
 <?= isset($model['has_url_enhancer']) ? '' : "        */\n" ?>
-        /*
+<?= isset($model['has_twinnable_behaviour']) ? '' : "        /*\n" ?>
         'Nos\Orm_Behaviour_Twinnable' => array(
-            'context_property'      => '<?= $model['column_prefix'] ?>_context',
-            'common_id_property' => '<?= $model['column_prefix'] ?>_context_common_id',
-            'is_main_property' => '<?= $model['column_prefix'] ?>_context_is_main',
+            'context_property'      => '<?= $model['column_prefix'] ?>context',
+            'common_id_property' => '<?= $model['column_prefix'] ?>context_common_id',
+            'is_main_property' => '<?= $model['column_prefix'] ?>context_is_main',
             'common_fields'   => array(),
         ),
-        */
+<?= isset($model['has_twinnable_behaviour']) ? '' : "        */\n" ?>
+<?= isset($model['has_author_behaviour']) ? '' : "        /*\n" ?>
+        'Nos\Orm_Behaviour_Author' => array(
+            'created_by_property' => '<?= $model['column_prefix'] ?>created_by_id',
+            'updated_by_property' => '<?= $model['column_prefix'] ?>updated_by_id',
+        ),
+<?= isset($model['has_author_behaviour']) ? '' : "        */\n" ?>
     );
 
     protected static $_belongs_to  = array(

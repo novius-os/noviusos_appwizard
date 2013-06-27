@@ -19,8 +19,12 @@ use View;
 
 class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Application
 {
+    public $page_from = false;
+
     public function action_main($args = array())
     {
+        $this->page_from = $this->main_controller->getPage();
+
         $enhancer_url = $this->main_controller->getEnhancerUrl();
 
         if (!empty($enhancer_url)) {
@@ -38,12 +42,24 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
 
     protected function display_list_<?= strtolower($model['name']) ?>()
     {
-        $<?= strtolower($model['name']) ?>_list =  Model_<?= $model['name'] ?>::find('all', array(
+        $params = array(
+            'where' => array(),
             'order_by' => array(
                 '<?= $model['column_prefix'] ?>id' => 'ASC'
             ),
             'limit' => 10
-        ));
+        );
+
+<?php
+if ($model['has_twinnable_behaviour']) {
+    echo '        $params[\'where\'][] = array(\''.$model['column_prefix'].'context\', \'=\', $this->page_from->page_context);'."\n";
+}
+if ($model['has_publishable_behaviour']) {
+    echo '        $params[\'where\'][] = array(\'published\', true);'."\n";
+}
+?>
+
+        $<?= strtolower($model['name']) ?>_list =  Model_<?= $model['name'] ?>::find('all', $params);
 
         return \View::forge('front/<?= strtolower($model['name']) ?>_list', array(
             '<?= strtolower($model['name']) ?>_list' => $<?= strtolower($model['name']) ?>_list,

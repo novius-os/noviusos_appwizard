@@ -36,5 +36,23 @@ Nos\I18n::current_dictionary('noviusos_appwizard::common');
             </label>
             <input type="checkbox" name="has_url_enhancer" />
         </div>
+        <div class="labelled_input has_twinnable_behaviour">
+            <label>
+                <?= __('Is twinnable?') ?>
+            </label>
+            <input type="checkbox" name="has_twinnable_behaviour" />
+        </div>
+        <div class="labelled_input has_publishable_behaviour">
+            <label>
+                <?= __('Is publishable?') ?>
+            </label>
+            <input type="checkbox" name="has_publishable_behaviour" />
+        </div>
+        <div class="labelled_input has_author_behaviour">
+            <label>
+                <?= __('Has author?') ?>
+            </label>
+            <input type="checkbox" name="has_author_behaviour" />
+        </div>
     </div>
 </div>
