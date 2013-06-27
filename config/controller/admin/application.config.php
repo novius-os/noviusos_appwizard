@@ -184,7 +184,7 @@ return array(
                 'on_model_properties'   => false
             ),
             'datetime' => array(
-                'label'                 => __('Date/Time input'),
+                'label'                 => __('Date and Time Field'),
                 'on_model_properties'   => true
             ),
         )
