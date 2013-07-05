@@ -167,10 +167,10 @@ MYDELIMITER;
         'delete in the following contexts' => __('Delete this item in the following contexts:'),
         'item deleted' => __('This item has been deleted.'),
         'not found' => __('Item not found'),
-        'error added in context' => __('This item cannot be added {context}.'),
+        'error added in context' => __('This item cannot be added in {context}.'),
         'item inexistent in context yet' => __('This item has not been added in {context} yet.'),
         'add an item in context' => __('Add a new item in {context}'),
-        'delete an item' => __('Delete a item'),
+        'delete an item' => __('Delete an item'),
     ),
     */
     /*
@@ -178,8 +178,8 @@ MYDELIMITER;
     'tab' => array(
         'iconUrl' => 'static/apps/{{application_name}}/img/16/icon.png',
         'labels' => array(
-            'insert' => __('Add a item'),
-            'blankSlate' => __('Translate a item'),
+            'insert' => __('Add an item'),
+            'blankSlate' => __('Translate an item'),
         ),
     ),
     */

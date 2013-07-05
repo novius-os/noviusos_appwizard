@@ -51,7 +51,7 @@ foreach ($config['fields'] as $key => $val) {
         <div class="labelled_input">
             <input type="checkbox" name="is_on_appdesk" class="is_on_appdesk" />
             <label class="inline">
-                <?= __('Shows in the main grid of the App Desk') ?>
+                <?= __('Shows in the App Desk') ?>
             </label>
         </div>
         <div class="labelled_input">

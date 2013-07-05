@@ -32,25 +32,25 @@ Nos\I18n::current_dictionary('noviusos_appwizard::common');
         </div>
         <div class="labelled_input has_url_enhancer">
             <label>
-                <?= __('Add an URL enhancer?') ?>
+                <?= __('URL enhancer: This model content is to meant to be published online.') ?>
             </label>
             <input type="checkbox" name="has_url_enhancer" />
         </div>
         <div class="labelled_input has_twinnable_behaviour">
             <label>
-                <?= __('Is twinnable?') ?>
+                <?= __('Twinnable behaviour: This model content is available in different versions depending on the language or context.') ?>
             </label>
             <input type="checkbox" name="has_twinnable_behaviour" />
         </div>
         <div class="labelled_input has_publishable_behaviour">
             <label>
-                <?= __('Is publishable?') ?>
+                <?= __('Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.') ?>
             </label>
             <input type="checkbox" name="has_publishable_behaviour" />
         </div>
         <div class="labelled_input has_author_behaviour">
             <label>
-                <?= __('Has author?') ?>
+                <?= __('Author behaviour: An author is attributed to each piece of this model content.') ?>
             </label>
             <input type="checkbox" name="has_author_behaviour" />
         </div>
