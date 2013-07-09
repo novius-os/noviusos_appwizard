@@ -32,7 +32,7 @@ if (count($medias)) {
 
     foreach ($medias as $media_name) {
         echo 'if (!empty(' . $item_variable . "->medias->$media_name)) {\n";
-        echo '    echo ' . $item_variable . '->medias->' . $media_name . '->get_img_tag_resized(400, 300);'."\n";
+        echo '    echo ' . $item_variable . '->medias->' . $media_name . '->getImgTagResized(400, 300);'."\n";
         echo "}\n";
     }
     echo "?>\n";
