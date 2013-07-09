@@ -157,20 +157,47 @@ MYDELIMITER;
         ),
     )
     /* UI texts sample
-    'messages' => array(
-        'successfully added' => __('Item successfully added.'),
-        'successfully saved' => __('Item successfully saved.'),
-        'successfully deleted' => __('Item has successfully been deleted!'),
-        'you are about to delete, confim' => __('You are about to delete item <span style="font-weight: bold;">":title"</span>. Are you sure you want to continue?'),
-        'you are about to delete' => __('You are about to delete item <span style="font-weight: bold;">":title"</span>.'),
-        'exists in multiple context' => __('This item exists in <strong>{count} contexts</strong>.'),
-        'delete in the following contexts' => __('Delete this item in the following contexts:'),
-        'item deleted' => __('This item has been deleted.'),
-        'not found' => __('Item not found'),
-        'error added in context' => __('This item cannot be added in {context}.'),
-        'item inexistent in context yet' => __('This item has not been added in {context} yet.'),
-        'add an item in context' => __('Add a new item in {context}'),
-        'delete an item' => __('Delete an item'),
+    'i18n' => array(
+        // Crud
+        // Note to translator: Default copy meant to be overwritten by applications (e.g. The item has been deleted > The page has been deleted). The word 'item' is not to feature in Novius OS.
+        'notification item added' => __('Done! The item has been added.'),
+        'notification item saved' => __('OK, all changes are saved.'),
+        'notification item deleted' => __('The item has been deleted.'),
+
+        // General errors
+        'notification item does not exist anymore' => __('This item doesn’t exist any more. It has been deleted.'),
+        'notification item not found' => __('We cannot find this item.'),
+
+        // Deletion popup
+        'deleting item title' => __('Deleting the item ‘{{title}}’'),
+
+        # Delete action's labels
+        'deleting button 1 item' => __('Yes, delete this item'),
+        'deleting button N items' => __('Yes, delete these {{count}} items'),
+
+        'deleting wrong confirmation' => __('We cannot delete this item as the number of sub-items you’ve entered is wrong. Please amend it.'),
+
+        '1 item' => __('1 item'),
+        'N items' => __('{{count}} items'),
+
+        # Keep only if the model has the behaviour Contextable
+        'deleting with N contexts' => __('This item exists in <strong>{{context_count}} contexts</strong>.'),
+        'deleting with N languages' => __('This item exists in <strong>{{language_count}} languages</strong>.'),
+
+        # Keep only if the model has the behaviours Contextable + Tree
+        'deleting with N contexts and N children' => __('This item exists in <strong>{{context_count}} contexts</strong> and has <strong>{{children_count}} sub-items</strong>.'),
+        'deleting with N contexts and 1 child' => __('This item exists in <strong>{{context_count}} contexts</strong> and has <strong>one sub-item</strong>.'),
+        'deleting with N languages and N children' => __('This item exists in <strong>{{language_count}} languages</strong> and has <strong>{{children_count}} sub-items</strong>.'),
+        'deleting with N languages and 1 child' => __('This item exists in <strong>{{language_count}} languages</strong> and has <strong>one sub-item</strong>.'),
+
+        # Keep only if the model has the behaviour Twinnable
+        'translate error parent not available in context' => __('We’re afraid this item cannot be added to {{context}} because its <a>parent</a> is not available in this context yet.'),
+        'translate error parent not available in language' => __('We’re afraid this item cannot be translated into {{language}} because its <a>parent</a> is not available in this language yet.'),
+        'translate error impossible context' => __('This item cannot be added in {{context}}. (How come you get this error message? You’ve hacked your way into here, haven’t you?)'),
+
+        # Keep only if the model has the behaviour Tree
+        'deleting with 1 child' => __('This item has <strong>1 sub-item</strong>.'),
+        'deleting with N children' => __('This item has <strong>{{children_count}} sub-items</strong>.'),
     ),
     */
     /*
