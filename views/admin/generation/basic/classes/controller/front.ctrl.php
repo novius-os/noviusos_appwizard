@@ -51,10 +51,10 @@ class Controller_Front_<?= $model['name'] ?> extends Controller_Front_Applicatio
         );
 
 <?php
-if ($model['has_twinnable_behaviour']) {
+if (!empty($model['has_twinnable_behaviour'])) {
     echo '        $params[\'where\'][] = array(\''.$model['column_prefix'].'context\', \'=\', $this->page_from->page_context);'."\n";
 }
-if ($model['has_publishable_behaviour']) {
+if (!empty($model['has_publishable_behaviour'])) {
     echo '        $params[\'where\'][] = array(\'published\', true);'."\n";
 }
 ?>

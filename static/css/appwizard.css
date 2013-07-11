@@ -59,7 +59,7 @@ h1.appwizard {
 }
 
 .appwizard label {
-    display: block;
+    display: inline-block;
 }
 
 .appwizard label.inline, .appwizard label.tooltip {
