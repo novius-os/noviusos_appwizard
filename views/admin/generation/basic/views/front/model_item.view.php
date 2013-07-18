@@ -45,7 +45,7 @@ if (count($wysiwygs)) {
         echo '<?= ' . $item_variable . '->wysiwygs->' . $wysiwyg_name . " ?>\n";
     }
 }
-?>
 
-<a href="<?= '<?= \Nos\Nos::main_controller()->getPage()->url() ?>' ?>"><?= __('Back') ?></a>
+echo \Nos\Nos::main_controller()->getPage()->htmlAnchor(array('text' => __('Back')));
+?>
 </div>
