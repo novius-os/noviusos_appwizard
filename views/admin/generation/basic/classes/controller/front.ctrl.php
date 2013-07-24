@@ -94,7 +94,7 @@ if (!empty($model['has_publishable_behaviour'])) {
             // url built according to $item'class
             switch (get_class($item)) {
                 case '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>' :
-                    return urlencode($item->virtual_name()).'.html';
+                    return $item->virtual_name().'.html';
                     break;
             }
         }
