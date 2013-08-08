@@ -15,7 +15,7 @@ The ‘Build your app’ wizard is to easily and quickly build a Novius OS appli
 
 ## Documentation & support
 
-* [Novius OS documentation](http://docs.novius-os.org) has the whole section on creating new applications.
+* [Novius OS documentation](http://docs.novius-os.org) has a whole section on creating new applications.
 * If you don’t find answers to your questions in the docs, you’ll find help in [the forum](http://forums.novius-os.org/en).
 
 ## Demo
