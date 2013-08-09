@@ -1,15 +1,15 @@
 <?php
 
-// Generated on 05/07/2013 14:57:58
+// Generated on 09/08/2013 10:16:42
 
-// 56 out of 60 messages are translated (93%).
-// 225 out of 235 words are translated (93%).
+// 60 out of 60 messages are translated (100%).
+// 274 out of 274 words are translated (100%).
 
 return array(
     #: classes/controller/admin/application.ctrl.php:30
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'Bravo&nbsp;! Votre application a été créée. Si vous avez choisi de l’installer sur ce Novius OS, allez vite sur l’onglet d´accueil pour la tester.',
 
-    #: views/admin/generation/basic/views/front/model_item.view.php:50
+    #: views/admin/generation/basic/views/front/model_item.view.php:49
     'Back' => 'Retour',
 
     #: views/admin/form/basic/model_inside.view.php:17
@@ -21,17 +21,17 @@ return array(
     #: views/admin/form/basic/model_inside.view.php:29
     'Column prefix (e.g. monk_):' => 'Préfixe de la colonne (ex&nbsp;: sing_)&nbsp;:',
 
-    #: views/admin/form/basic/model_inside.view.php:35
-    'Add an URL enhancer?' => 'Ajouter un URL enhancer&nbsp;?',
+    #: views/admin/form/basic/model_inside.view.php:36
+    'URL enhancer: This model content is to meant to be published online.' => 'URL enhancer&nbsp;: Le contenu de ce modèle est destiné à être publié en ligne.',
 
-    #: views/admin/form/basic/model_inside.view.php:41
-    'Is twinnable?' => '',
+    #: views/admin/form/basic/model_inside.view.php:42
+    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => 'Comportement Twinnable&nbsp;: Le contenu de ce modèle est disponible dans différentes versions en fonction de la langue ou du contexte.',
 
-    #: views/admin/form/basic/model_inside.view.php:47
-    'Is publishable?' => '',
+    #: views/admin/form/basic/model_inside.view.php:48
+    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => 'Comportement Publishable&nbsp;: Le contenu de ce modèle a un état de publication, comme «&nbsp;Publié&nbsp;» ou «&nbsp;Planifié&nbsp;».',
 
-    #: views/admin/form/basic/model_inside.view.php:53
-    'Has author?' => '',
+    #: views/admin/form/basic/model_inside.view.php:54
+    'Author behaviour: An author is attributed to each piece of this model content.' => 'Comportement Author&nbsp;: Chaque item de ce modèle a un auteur.',
 
     #: views/admin/form/basic/models.view.php:16
     #: views/admin/form/basic/fields.view.php:16
@@ -143,7 +143,7 @@ return array(
     'Is the form title' => 'Est le titre du formulaire',
 
     #: views/admin/form/basic/field_inside.php:54
-    'Shows in the main grid of the App Desk' => 'Apparait dans le tableau principal de l’App Desk',
+    'Shows in the App Desk' => 'Apparait dans l’App Desk',
 
     #: views/admin/form/basic/field_inside.php:60
     'Shows in the add/update forms' => 'Apparait dans les formulaires d’ajout / modification',
@@ -192,6 +192,6 @@ return array(
     'Image from Media Centre' => 'Image de la Médiathèque',
 
     #: config/controller/admin/application.config.php:187
-    'Date and Time Field' => '',
+    'Date and time picker' => 'Calendrier (date et heure)',
 
 );
