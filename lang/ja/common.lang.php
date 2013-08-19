@@ -1,15 +1,15 @@
 <?php
 
-// Generated on 05/07/2013 14:57:58
+// Generated on 19/08/2013 18:12:14
 
-// 56 out of 60 messages are translated (93%).
-// 225 out of 235 words are translated (93%).
+// 54 out of 60 messages are translated (90%).
+// 212 out of 274 words are translated (90%).
 
 return array(
     #: classes/controller/admin/application.ctrl.php:30
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'おめでとうございます。アプリケーションが作成されました。このアプリケーションを Novius OS にインストールするには、ホームタブに移動して実行してください。',
 
-    #: views/admin/generation/basic/views/front/model_item.view.php:50
+    #: views/admin/generation/basic/views/front/model_item.view.php:49
     'Back' => '戻る',
 
     #: views/admin/form/basic/model_inside.view.php:17
@@ -21,17 +21,17 @@ return array(
     #: views/admin/form/basic/model_inside.view.php:29
     'Column prefix (e.g. monk_):' => 'カラムプレフィックス(例: monk_) :',
 
-    #: views/admin/form/basic/model_inside.view.php:35
-    'Add an URL enhancer?' => 'URL エンハンサを追加しますか？',
+    #: views/admin/form/basic/model_inside.view.php:36
+    'URL enhancer: This model content is to meant to be published online.' => '',
 
-    #: views/admin/form/basic/model_inside.view.php:41
-    'Is twinnable?' => '',
+    #: views/admin/form/basic/model_inside.view.php:42
+    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => '',
 
-    #: views/admin/form/basic/model_inside.view.php:47
-    'Is publishable?' => '',
+    #: views/admin/form/basic/model_inside.view.php:48
+    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => '',
 
-    #: views/admin/form/basic/model_inside.view.php:53
-    'Has author?' => '',
+    #: views/admin/form/basic/model_inside.view.php:54
+    'Author behaviour: An author is attributed to each piece of this model content.' => '',
 
     #: views/admin/form/basic/models.view.php:16
     #: views/admin/form/basic/fields.view.php:16
@@ -143,7 +143,7 @@ return array(
     'Is the form title' => 'フォームのタイトル',
 
     #: views/admin/form/basic/field_inside.php:54
-    'Shows in the main grid of the App Desk' => 'App Deskのメイングリッドに表示する',
+    'Shows in the App Desk' => '',
 
     #: views/admin/form/basic/field_inside.php:60
     'Shows in the add/update forms' => '追加／更新フォームに表示する',
@@ -192,6 +192,6 @@ return array(
     'Image from Media Centre' => 'メディアセンターの画像',
 
     #: config/controller/admin/application.config.php:187
-    'Date and Time Field' => '',
+    'Date and time picker' => '',
 
 );
