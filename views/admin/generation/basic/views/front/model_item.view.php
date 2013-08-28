@@ -46,6 +46,6 @@ if (count($wysiwygs)) {
     }
 }
 
-echo \Nos\Nos::main_controller()->getPage()->htmlAnchor(array('text' => __('Back')));
+echo '<?= \Nos\Nos::main_controller()->getPage()->htmlAnchor(array(\'text\' => __(\'Back\'))); ?>';
 ?>
 </div>
