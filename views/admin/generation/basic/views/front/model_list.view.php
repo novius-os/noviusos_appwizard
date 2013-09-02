@@ -13,7 +13,7 @@ echo 'echo "<div class=\"', $data['application_settings']['folder'].'_'.strtolow
 echo 'if (count($' . strtolower($model['name']) . "_list) > 0) {\n";
 echo '    echo "<ul>\n";'."\n";
 echo '    foreach ($' . strtolower($model['name']) . '_list as $' . strtolower($model['name']) . ") {\n";
-echo '        echo \'<li>\' . $' . strtolower($model['name']) . '->htmlAnchor() . \'</li>\n";' . "\n";
+echo '        echo \'<li>\' . $' . strtolower($model['name']) . '->htmlAnchor() . "</li>\n";' . "\n";
 echo "    }\n";
 echo '    echo "</ul>\n";'."\n";
 echo "}\n";
