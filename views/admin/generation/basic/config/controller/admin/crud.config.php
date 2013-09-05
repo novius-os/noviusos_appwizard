@@ -70,7 +70,6 @@ return array(
     'model' => '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>',
     'layout' => array(
         'large' => true,
-        'save' => 'save',
 <?php
 if ($title_field !== null) {
     echo "        'title' => '".$title_field."',\n";
@@ -144,17 +143,6 @@ MYDELIMITER;
         echo "\n";
 }
 ?>
-        'save' => array(
-            'label' => '',
-            'form' => array(
-                'type' => 'submit',
-                'tag' => 'button',
-                // Note to translator: This is a submit button
-                'value' => __('Save'),
-                'class' => 'ui-priority-primary',
-                'data-icon' => 'check',
-            ),
-        ),
     )
     /* UI texts sample
     'i18n' => array(
