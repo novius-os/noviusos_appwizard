@@ -19,7 +19,13 @@ foreach ($model['fields'] as $field) {
 }
 
 if (isset($model['has_url_enhancer'])) {
-    $properties[] = var_export($model['column_prefix'].'virtual_name', true);
+    $properties[] = render(
+        'noviusos_appwizard::admin/generation/basic/misc/properties/virtual_name',
+        array(
+            'model' => $model,
+        ),
+        true
+    );
 }
 
 if (isset($model['has_publishable_behaviour'])) {
@@ -41,6 +47,11 @@ if (isset($model['has_author_behaviour'])) {
 
 $properties[] = var_export($model['column_prefix'].'created_at', true);
 $properties[] = var_export($model['column_prefix'].'updated_at', true);
+
+for ($i = 0; $i < count($properties); $i++) {
+    $properties[$i] = \Nos\AppWizard\Application_Generator::indent('        ', $properties[$i]);
+}
+
 echo "<?php\n";
 ?>
 
@@ -53,7 +64,7 @@ class Model_<?= $model['name'] ?> extends \Nos\Orm\Model
     protected static $_table_name = '<?= $model['table_name'] ?>';
 
     protected static $_properties = array(
-        <?= implode(",\n        ", $properties).",\n" ?>
+<?= implode(",\n", $properties).",\n" ?>
     );
 
 <?php

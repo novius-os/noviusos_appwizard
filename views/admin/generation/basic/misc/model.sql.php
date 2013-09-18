@@ -30,7 +30,7 @@ foreach ($model['fields'] as $field) {
 }
 
 if (isset($model['has_url_enhancer'])) {
-    echo '    `' . $model['column_prefix'] . "virtual_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,\n";
+    echo '    `' . $model['column_prefix'] . "virtual_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,\n";
 }
 
 if (isset($model['has_twinnable_behaviour'])) {
