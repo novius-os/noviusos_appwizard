@@ -130,6 +130,7 @@ if ($model['title_column_name'] !== null) {
         ),
         */
     );
+    protected static $_has_one   = array();
     protected static $_has_many  = array(
         /*
         'key' => array( // key must be defined, relation will be loaded via $<?= strtolower($model['name']) ?>->key
@@ -156,4 +157,10 @@ if ($model['title_column_name'] !== null) {
             ),
         */
     );
+
+    protected static $_twinnable_belongs_to = array();
+    protected static $_twinnable_has_one    = array();
+    protected static $_twinnable_has_many   = array();
+    protected static $_twinnable_many_many  = array();
+    protected static $_attachment           = array();
 }
