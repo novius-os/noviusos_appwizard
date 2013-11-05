@@ -480,7 +480,7 @@ $.widget("nos.appwizard", {
 
 
     toUnderscoreName: function(str) {
-        return this.removeDiacritics(str.toLowerCase()).replace(/([^A-Z|a-z| |_])/g, '').trim().replace(/( )/g, '_');
+        return this.removeDiacritics(str.toLowerCase()).replace(/([^A-Z|a-z|0-9| |_])/g, '').trim().replace(/( )/g, '_');
     },
 
     toUnderscoreNameInput: function($input) {
