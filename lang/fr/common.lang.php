@@ -1,16 +1,13 @@
 <?php
 
-// Generated on 19/08/2013 18:12:14
+// Generated on 07/11/2013 15:24:52
 
-// 60 out of 60 messages are translated (100%).
-// 274 out of 274 words are translated (100%).
+// 59 out of 59 messages are translated (100%).
+// 273 out of 273 words are translated (100%).
 
 return array(
     #: classes/controller/admin/application.ctrl.php:30
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'Bravo&nbsp;! Votre application a été créée. Si vous avez choisi de l’installer sur ce Novius OS, allez vite sur l’onglet d´accueil pour la tester.',
-
-    #: views/admin/generation/basic/views/front/model_item.view.php:49
-    'Back' => 'Retour',
 
     #: views/admin/form/basic/model_inside.view.php:17
     'Name (e.g. Monkey):' => 'Nom (ex&nbsp;: Singe)&nbsp;:',
@@ -170,28 +167,28 @@ return array(
     #: views/admin/form/basic/model.view.php:14
     'Model' => 'Modèle',
 
-    #: config/controller/admin/application.config.php:159
+    #: config/controller/admin/application.config.php:158
     'Main column' => 'Colonne principale (Main)',
 
-    #: config/controller/admin/application.config.php:162
+    #: config/controller/admin/application.config.php:161
     'Side column' => 'Colonne de droite (Side)',
 
-    #: config/controller/admin/application.config.php:167
+    #: config/controller/admin/application.config.php:166
     'Single line text' => 'Texte (une ligne)',
 
-    #: config/controller/admin/application.config.php:171
+    #: config/controller/admin/application.config.php:170
     'WYSIWYG text editor' => 'Éditeur WYSIWYG',
 
-    #: config/controller/admin/application.config.php:175
+    #: config/controller/admin/application.config.php:174
     'Paragraph text' => 'Texte (plusieurs lignes)',
 
-    #: config/controller/admin/application.config.php:179
+    #: config/controller/admin/application.config.php:178
     'Checkbox' => 'Case à cocher',
 
-    #: config/controller/admin/application.config.php:183
+    #: config/controller/admin/application.config.php:182
     'Image from Media Centre' => 'Image de la Médiathèque',
 
-    #: config/controller/admin/application.config.php:187
+    #: config/controller/admin/application.config.php:186
     'Date and time picker' => 'Calendrier (date et heure)',
 
 );
