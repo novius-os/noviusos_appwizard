@@ -86,3 +86,38 @@ h1.appwizard {
 .appwizard .blank_slate .sql p:first-child {
      margin-bottom: 2em;
  }
+
+.appwizard_error {
+    margin-top: 100px;
+    color: rgba(205, 10, 10, 1);
+    font-size: 16px;
+    background-color: rgba(205, 10, 10, 0.1);
+    border: 1px solid rgba(205, 10, 10, 0.6);
+    width: 70%;
+    margin-left: 15%;
+}
+
+.appwizard_error_inside {
+    margin: 20px;
+}
+
+.appwizard_error p {
+    margin: 10px 0px;
+}
+
+.appwizard_command_line_container {
+    margin: 30px 0px;
+}
+
+.appwizard_command_line {
+    display: inline-block;
+    border: 2px dashed rgba(205, 10, 10, 0.6);
+    background: rgba(255, 255, 255, 0.5);
+    line-height: 30px;
+    padding: 0px 5px;
+    font-family: "courier new";
+}
+
+a.appwizard_refresh_link {
+    color: rgba(205, 10, 10, 1);
+}

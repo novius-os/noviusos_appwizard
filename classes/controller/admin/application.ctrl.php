@@ -20,7 +20,12 @@ class Controller_Admin_Application extends \Nos\Controller_Admin_Application
 
     public function action_index()
     {
-        return \View::forge('noviusos_appwizard::admin/form/basic/form', array('config' => $this->config['basic']), false);
+        if (is_writable(APPPATH.'applications')) {
+            return \View::forge('noviusos_appwizard::admin/form/basic/form', array('config' => $this->config['basic']), false);
+        } else {
+            return \View::forge('noviusos_appwizard::admin/form/basic/error/not_writable');
+        }
+
     }
 
     public function action_generate()
