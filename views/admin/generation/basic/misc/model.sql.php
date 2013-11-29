@@ -23,7 +23,8 @@ foreach ($model['fields'] as $field) {
     );
     if (!empty($view)) {
         echo \Nos\AppWizard\Application_Generator::indent(
-            '    ', $view
+            '    ',
+            $view
         );
         echo "\n";
     }
