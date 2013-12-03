@@ -1,12 +1,12 @@
 <?php
 
-// Generated on 02/12/2013 17:53:33
+// Generated on 03/12/2013 16:06:58
 
-// 59 out of 59 messages are translated (100%).
-// 273 out of 273 words are translated (100%).
+// 62 out of 62 messages are translated (100%).
+// 306 out of 306 words are translated (100%).
 
 return array(
-    #: classes/controller/admin/application.ctrl.php:30
+    #: classes/controller/admin/application.ctrl.php:35
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'Поздравляем! Ваше приложение успешно создано. Если вы выбрали установку в данную Novius OS, перейдите на главную вкладку, чтобы проверить его.',
 
     #: views/admin/form/basic/model_inside.view.php:17
@@ -19,16 +19,16 @@ return array(
     'Column prefix (e.g. monk_):' => 'Префикс колонки (например, monk_):',
 
     #: views/admin/form/basic/model_inside.view.php:36
-    'URL enhancer: This model content is to meant to be published online.' => '',
+    'URL enhancer: This model content is to meant to be published online.' => 'URL enhancer: Содержание этой модели предполагает онлайн-публикацию.',
 
     #: views/admin/form/basic/model_inside.view.php:42
-    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => '',
+    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => 'Twinnable behaviour: Содержание этой модели доступно в различных вариантах, в зависимости от языка или контекста.',
 
     #: views/admin/form/basic/model_inside.view.php:48
-    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => '',
+    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => 'Publishable behaviour: Содержание этой модели имеет статус публикации, например, Опубликовано, Запланировано.',
 
     #: views/admin/form/basic/model_inside.view.php:54
-    'Author behaviour: An author is attributed to each piece of this model content.' => '',
+    'Author behaviour: An author is attributed to each piece of this model content.' => 'Author behaviour: Ко всем элементам содержимого модели добавляется автор.',
 
     #: views/admin/form/basic/models.view.php:16
     #: views/admin/form/basic/fields.view.php:16
@@ -60,6 +60,7 @@ return array(
 
     #: views/admin/form/basic/form.view.php:38
     #: views/admin/form/basic/form.view.php:120
+    #: views/admin/form/basic/error/not_writable.view.php:12
     '‘Build your app’ wizard' => 'Мастер «Создайте свое приложение»',
 
     #: views/admin/form/basic/form.view.php:43
@@ -113,6 +114,15 @@ return array(
 
     #: views/admin/form/basic/form.view.php:97
     'Learn how to extend your application.' => 'Узнать, как расширить возможности вашего приложения.',
+
+    #: views/admin/form/basic/error/not_writable.view.php:17
+    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:21
+    'You could execute the following command line for doing so:' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:28
+    'Refresh when you are ready.' => '',
 
     #: views/admin/form/basic/category_inside.view.php:17
     'Title (e.g. Properties):' => 'Заголовок (например, Свойства):',

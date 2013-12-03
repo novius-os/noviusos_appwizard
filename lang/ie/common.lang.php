@@ -1,12 +1,12 @@
 <?php
 
-// Generated on 02/12/2013 17:53:33
+// Generated on 03/12/2013 16:06:58
 
-// 59 out of 59 messages are translated (100%).
-// 273 out of 273 words are translated (100%).
+// 62 out of 62 messages are translated (100%).
+// 306 out of 306 words are translated (100%).
 
 return array(
-    #: classes/controller/admin/application.ctrl.php:30
+    #: classes/controller/admin/application.ctrl.php:35
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'Bravo! Tu application ha esset creat. Si tu ha decidet installar it sur ti Novius OS, ea vers li tabul principal por essayar it.',
 
     #: views/admin/form/basic/model_inside.view.php:17
@@ -60,6 +60,7 @@ return array(
 
     #: views/admin/form/basic/form.view.php:38
     #: views/admin/form/basic/form.view.php:120
+    #: views/admin/form/basic/error/not_writable.view.php:12
     '‘Build your app’ wizard' => 'Assistor "Crear mi application"',
 
     #: views/admin/form/basic/form.view.php:43
@@ -114,6 +115,15 @@ return array(
     #: views/admin/form/basic/form.view.php:97
     'Learn how to extend your application.' => 'Aprender qualmen extender tu application.',
 
+    #: views/admin/form/basic/error/not_writable.view.php:17
+    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:21
+    'You could execute the following command line for doing so:' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:28
+    'Refresh when you are ready.' => '',
+
     #: views/admin/form/basic/category_inside.view.php:17
     'Title (e.g. Properties):' => 'Titul (exemple: Proprietas):',
 
@@ -167,28 +177,28 @@ return array(
     #: views/admin/form/basic/model.view.php:14
     'Model' => 'Modelle',
 
-    #: config/controller/admin/application.config.php:159
+    #: config/controller/admin/application.config.php:158
     'Main column' => 'Colonne principale (Main)',
 
-    #: config/controller/admin/application.config.php:162
+    #: config/controller/admin/application.config.php:161
     'Side column' => 'Dextri colonne',
 
-    #: config/controller/admin/application.config.php:167
+    #: config/controller/admin/application.config.php:166
     'Single line text' => 'Textu (un linea)',
 
-    #: config/controller/admin/application.config.php:171
+    #: config/controller/admin/application.config.php:170
     'WYSIWYG text editor' => 'WYSIWYG textu editor',
 
-    #: config/controller/admin/application.config.php:175
+    #: config/controller/admin/application.config.php:174
     'Paragraph text' => 'Textu (multi lineas)',
 
-    #: config/controller/admin/application.config.php:179
+    #: config/controller/admin/application.config.php:178
     'Checkbox' => 'Checkbox',
 
-    #: config/controller/admin/application.config.php:183
+    #: config/controller/admin/application.config.php:182
     'Image from Media Centre' => 'Image ex Mediateca',
 
-    #: config/controller/admin/application.config.php:187
+    #: config/controller/admin/application.config.php:186
     'Date and time picker' => 'Calendare (Date e hora)',
 
 );
