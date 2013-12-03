@@ -6,6 +6,6 @@
 // 4 out of 4 words are translated (100%).
 
 return array(
-    '‘Build your app’ wizard' => 'Assistant ‘Créer mon appli’',
+    '‘Build your app’ wizard' => 'Мастер «Создайте свое приложение»',
 
 );

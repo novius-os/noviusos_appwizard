@@ -1,12 +1,12 @@
 <?php
 
-// Generated on 07/11/2013 15:24:52
+// Generated on 02/12/2013 17:53:33
 
-// 59 out of 59 messages are translated (100%).
-// 273 out of 273 words are translated (100%).
+// 62 out of 62 messages are translated (100%).
+// 306 out of 306 words are translated (100%).
 
 return array(
-    #: classes/controller/admin/application.ctrl.php:30
+    #: classes/controller/admin/application.ctrl.php:35
     'Bravo! Your application has been created. If you’ve chosen to install it on this Novius OS, go to the home tab to try it out.' => 'おめでとうございます。アプリケーションが作成されました。このアプリケーションを Novius OS にインストールするには、ホームタブに移動して実行してください。',
 
     #: views/admin/form/basic/model_inside.view.php:17
@@ -60,6 +60,7 @@ return array(
 
     #: views/admin/form/basic/form.view.php:38
     #: views/admin/form/basic/form.view.php:120
+    #: views/admin/form/basic/error/not_writable.view.php:12
     '‘Build your app’ wizard' => '「アプリケーション作成」ウィザード',
 
     #: views/admin/form/basic/form.view.php:43
@@ -113,6 +114,15 @@ return array(
 
     #: views/admin/form/basic/form.view.php:97
     'Learn how to extend your application.' => 'アプリケーションを拡張する方法を学ぶ',
+
+    #: views/admin/form/basic/error/not_writable.view.php:17
+    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:21
+    'You could execute the following command line for doing so:' => '',
+
+    #: views/admin/form/basic/error/not_writable.view.php:28
+    'Refresh when you are ready.' => '',
 
     #: views/admin/form/basic/category_inside.view.php:17
     'Title (e.g. Properties):' => 'タイトル(例: プロパティ) :',
