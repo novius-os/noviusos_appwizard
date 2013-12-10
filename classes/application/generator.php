@@ -12,6 +12,31 @@ namespace Nos\AppWizard;
 
 class Application_Generator
 {
+    /**
+     * Generates an application from a config file and form input
+     *
+     * @param $config array  configuration of the application
+     * - form_path: folder where the form is located (noviusos_appwizard::admin/form/basic/form is needed)
+     * - generation_path: location of all files needed for the application generation
+     * - folders: folders to create when generating an application
+     * - files: callback function
+     *   * $root_dir string  root directory where all files must be generated (likely to be the generated application path)
+     *   * $data array  form input
+     *   * $config array  generator configuration
+     *   * return: array of array, each array defining a file to be generated
+     *     - template: generate from this view
+     *     - data: view data
+     *     - destination
+     * - category_types: key => value array defining categories (fields group type). Key is the category identifier. Value
+     * is an array containing:
+     *   - label
+     * - fields: key => value array defining field types. Key is the field type identifier. Value is an array containing:
+     *   - label
+     *   - on_model_properties: will the field create an associated model property.
+     *
+     * @param $input array  input from the form (defining fields)
+     * @throws \Exception  Can throw exception if a folder exists already.
+     */
     public static function generate($config, $input)
     {
         $root_dir = APPPATH.'applications/'.$input['application_settings']['folder'];
@@ -45,9 +70,16 @@ class Application_Generator
             $application = \Nos\Application::forge($input['application_settings']['folder']);
             $application->install();
         }
-        return array();
     }
 
+    /**
+     * View helper that allows to keep a consistent indentation when generating code.
+     *
+     * @param $pre string  piece of string to be appended before each line (likely to be spaces)
+     * @param $str string  code to be indented
+     *
+     * @return string indented code
+     */
     public static function indent($pre, $str)
     {
         $exploded_str = explode("\n", $str);
@@ -57,6 +89,12 @@ class Application_Generator
         return implode("\n", $exploded_str);
     }
 
+    /**
+     * Generate folders from a list of folder paths
+     *
+     * @param $root_dir string  root dir where all folders are generated
+     * @param $folders array  list of folder paths
+     */
     protected static function generateFolders($root_dir, $folders)
     {
         foreach ($folders as $folder) {
@@ -65,6 +103,14 @@ class Application_Generator
         }
     }
 
+    /**
+     * Generates applications files (models, controllers, view), from information on the configuration file and the
+     * form values.
+     *
+     * @param $root_dir string  root director (likely to be generated application directory
+     * @param $config array  configuration
+     * @param $input array  form values
+     */
     protected static function generateFiles($root_dir, $config, $input)
     {
         $files = $config['files']($root_dir, $input, $config);

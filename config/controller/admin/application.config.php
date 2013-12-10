@@ -10,6 +10,11 @@
 
 Nos\I18n::current_dictionary('noviusos_appwizard::common');
 
+/*
+ * The configuration is organized in a key => value structure to allow eventually multiple configuration
+ * management; for instance, one key's purpose could be to generate a basic application, an other one's could be to
+ * generate a template.
+ */
 return array(
     'basic' => array(
         'form_path' => 'noviusos_appwizard::admin/form/basic',
