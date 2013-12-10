@@ -16,11 +16,10 @@ class Application_Generator
      * Generates an application from a config file and form input
      *
      * @param $config array  configuration of the application
-     * - form_path: folder where the form is located (noviusos_appwizard::admin/form/basic/form is needed)
-     * - generation_path: location of all files needed for the application generation
-     * - folders: folders to create when generating an application
+     * - generation_path: Location of all files needed for the application generation
+     * - folders: Folders to create when generating an application
      * - files: callback function
-     *   * $root_dir string  root directory where all files must be generated (likely to be the generated application path)
+     *   * $root_dir string  Root directory where all files must be generated (likely to be the generated application path)
      *   * $data array  form input
      *   * $config array  generator configuration
      *   * return: array of array, each array defining a file to be generated
@@ -90,9 +89,9 @@ class Application_Generator
     }
 
     /**
-     * Generate folders from a list of folder paths
+     * Generates folders from a list of folder paths
      *
-     * @param $root_dir string  root dir where all folders are generated
+     * @param $root_dir string  root directory where all folders are generated
      * @param $folders array  list of folder paths
      */
     protected static function generateFolders($root_dir, $folders)
@@ -107,7 +106,7 @@ class Application_Generator
      * Generates applications files (models, controllers, view), from information on the configuration file and the
      * form values.
      *
-     * @param $root_dir string  root director (likely to be generated application directory
+     * @param $root_dir string  root director (likely to be the generated application directory)
      * @param $config array  configuration
      * @param $input array  form values
      */
