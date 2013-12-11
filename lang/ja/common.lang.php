@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 11/12/2013 10:31:03
+// Generated on 11/12/2013 17:57:29
 
 // 62 out of 62 messages are translated (100%).
 // 306 out of 306 words are translated (100%).
@@ -177,28 +177,28 @@ return array(
     #: views/admin/form/basic/model.view.php:14
     'Model' => 'モデル',
 
-    #: config/controller/admin/application.config.php:158
+    #: config/controller/admin/application.config.php:162
     'Main column' => 'メインカラム',
 
-    #: config/controller/admin/application.config.php:161
+    #: config/controller/admin/application.config.php:165
     'Side column' => 'サイドカラム',
 
-    #: config/controller/admin/application.config.php:166
+    #: config/controller/admin/application.config.php:170
     'Single line text' => 'テキスト(一行)',
 
-    #: config/controller/admin/application.config.php:170
+    #: config/controller/admin/application.config.php:174
     'WYSIWYG text editor' => 'ビジュアルエディタ',
 
-    #: config/controller/admin/application.config.php:174
+    #: config/controller/admin/application.config.php:178
     'Paragraph text' => 'テキスト(複数行)',
 
-    #: config/controller/admin/application.config.php:178
+    #: config/controller/admin/application.config.php:182
     'Checkbox' => 'チェックボックス',
 
-    #: config/controller/admin/application.config.php:182
+    #: config/controller/admin/application.config.php:186
     'Image from Media Centre' => 'メディアセンターの画像',
 
-    #: config/controller/admin/application.config.php:186
+    #: config/controller/admin/application.config.php:190
     'Date and time picker' => '日付／時刻ピッカー',
 
 );
