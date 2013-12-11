@@ -1,6 +1,6 @@
 <?php
 
-// Generated on 03/12/2013 16:22:23
+// Generated on 11/12/2013 10:31:03
 
 // 62 out of 62 messages are translated (100%).
 // 306 out of 306 words are translated (100%).
@@ -19,16 +19,16 @@ return array(
     'Column prefix (e.g. monk_):' => 'カラムプレフィックス(例: monk_) :',
 
     #: views/admin/form/basic/model_inside.view.php:36
-    'URL enhancer: This model content is to meant to be published online.' => '',
+    'URL enhancer: This model content is to meant to be published online.' => 'URL enhancer: このモデルコンテンツは、オンラインで公開できます。',
 
     #: views/admin/form/basic/model_inside.view.php:42
-    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => '',
+    'Twinnable behaviour: This model content is available in different versions depending on the language or context.' => 'Twinnable behaviour: このモデルコンテンツは、言語やコンテキストによって異なるバージョンが利用可能です。',
 
     #: views/admin/form/basic/model_inside.view.php:48
-    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => '',
+    'Publishable behaviour: This model content has a publication status, e.g. Published, Scheduled.' => 'Publishable behaviour: このモデルコンテンツは公開状態(公開、公開予定など)を持ちます。',
 
     #: views/admin/form/basic/model_inside.view.php:54
-    'Author behaviour: An author is attributed to each piece of this model content.' => '',
+    'Author behaviour: An author is attributed to each piece of this model content.' => 'Author behaviour: このモデルコンテンツのそれぞれに、著者を割り当てることができます。',
 
     #: views/admin/form/basic/models.view.php:16
     #: views/admin/form/basic/fields.view.php:16
@@ -116,13 +116,13 @@ return array(
     'Learn how to extend your application.' => 'アプリケーションを拡張する方法を学ぶ',
 
     #: views/admin/form/basic/error/not_writable.view.php:17
-    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => 'アプリケーションウィザードを使用するには、local/applications フォルダへ書き込み可にする必要があります。フォルダのパーミッションを変更してください。',
 
     #: views/admin/form/basic/error/not_writable.view.php:21
-    'You could execute the following command line for doing so:' => '',
+    'You could execute the following command line for doing so:' => '以下のコマンドラインを実行する事で実現できます。',
 
     #: views/admin/form/basic/error/not_writable.view.php:28
-    'Refresh when you are ready.' => '',
+    'Refresh when you are ready.' => '準備ができたら、画面を更新してください。',
 
     #: views/admin/form/basic/category_inside.view.php:17
     'Title (e.g. Properties):' => 'タイトル(例: プロパティ) :',
@@ -150,7 +150,7 @@ return array(
     'Is the form title' => 'フォームのタイトル',
 
     #: views/admin/form/basic/field_inside.php:54
-    'Shows in the App Desk' => '',
+    'Shows in the App Desk' => 'ダッシュボードに表示する',
 
     #: views/admin/form/basic/field_inside.php:60
     'Shows in the add/update forms' => '追加／更新フォームに表示する',
@@ -199,6 +199,6 @@ return array(
     'Image from Media Centre' => 'メディアセンターの画像',
 
     #: config/controller/admin/application.config.php:186
-    'Date and time picker' => '',
+    'Date and time picker' => '日付／時刻ピッカー',
 
 );
