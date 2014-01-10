@@ -116,10 +116,10 @@ return array(
     'Learn how to extend your application.' => 'Apprendre comment étendre votre application.',
 
     #: views/admin/form/basic/error/not_writable.view.php:17
-    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+    'The application wizard needs to be able to write in the local/applications folder. Please change the folder permissions.' => '',
 
     #: views/admin/form/basic/error/not_writable.view.php:21
-    'You could execute the following command line for doing so:' => '',
+    'You could execute the following command line for doing so:' => 'Pour ce faire, vous pouvez exécuter la commande suivante&nbsp;',
 
     #: views/admin/form/basic/error/not_writable.view.php:28
     'Refresh when you are ready.' => '',

@@ -14,7 +14,7 @@
 <div class="appwizard_error">
     <div class="appwizard_error_inside">
         <p>
-            <?= __("The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.") ?>
+            <?= __("The application wizard needs to be able to write in the local/applications folder. Please change the folder permissions.") ?>
         </p>
         <div class="appwizard_command_line_container">
             <p>

@@ -116,7 +116,7 @@ return array(
     'Learn how to extend your application.' => 'アプリケーションを拡張する方法を学ぶ',
 
     #: views/admin/form/basic/error/not_writable.view.php:17
-    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => 'アプリケーションウィザードを使用するには、local/applications フォルダへ書き込み可にする必要があります。フォルダのパーミッションを変更してください。',
+    'The application wizard needs to be able to write in the local/applications folder. Please change the folder permissions.' => 'アプリケーションウィザードを使用するには、local/applications フォルダへ書き込み可にする必要があります。フォルダのパーミッションを変更してください。',
 
     #: views/admin/form/basic/error/not_writable.view.php:21
     'You could execute the following command line for doing so:' => '以下のコマンドラインを実行する事で実現できます。',

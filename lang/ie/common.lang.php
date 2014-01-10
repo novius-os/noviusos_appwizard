@@ -116,7 +116,7 @@ return array(
     'Learn how to extend your application.' => 'Aprender qualmen extender tu application.',
 
     #: views/admin/form/basic/error/not_writable.view.php:17
-    'The application wizard need to be able to write in the local/applications folder. Please change the folder permissions.' => '',
+    'The application wizard needs to be able to write in the local/applications folder. Please change the folder permissions.' => '',
 
     #: views/admin/form/basic/error/not_writable.view.php:21
     'You could execute the following command line for doing so:' => '',
