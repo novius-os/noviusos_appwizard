@@ -10,7 +10,7 @@
 
 return array(
     'name'    => '‘Build your app’ wizard',
-    'version' => 'dubrovka',
+    'version' => '4.1 (Dubrovka)',
     'provider' => array(
         'name' => 'Novius OS',
     ),
