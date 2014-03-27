@@ -96,9 +96,12 @@ if (!empty($model['has_publishable_behaviour'])) {
                 case '<?= $data['application_settings']['namespace'] ?>\Model_<?= $model['name'] ?>' :
                     return $item->virtual_name().'.html';
                     break;
+
+                default:
+                    return false;
             }
         }
 
-        return false;
+        return '';
     }
 }
