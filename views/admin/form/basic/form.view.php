@@ -18,6 +18,7 @@ $i18n = array(
     'Step {{num}}. Fields layout' => __('Step {{num}}. Fields layout'),
     'Step {{num}}. Fields' => __('Step {{num}}. Fields'),
     'Step {{num}}. Compile' => __('Step {{num}}. Compile'),
+    'categoryNameByDefault' =>  __('Properties'),
 );
 
 $templates = array(

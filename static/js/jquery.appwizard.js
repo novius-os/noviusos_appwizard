@@ -6,7 +6,8 @@ $.widget("nos.appwizard", {
             'Step {{num}}. ({{modelName}}) Fields': 'Step {{num}}. ({{modelName}}) Fields',
             'Step {{num}}. Fields layout': 'Step {{num}}. Fields layout',
             'Step {{num}}. Fields': 'Step {{num}}. Fields',
-            'Step {{num}}. Compile': 'Step {{num}}. Compile'
+            'Step {{num}}. Compile': 'Step {{num}}. Compile',
+            categoryNameByDefault: 'Properties'
         },
         templates: {}
     },
@@ -53,6 +54,7 @@ $.widget("nos.appwizard", {
                 var $addCategory = $panel.find('.add_category');
                 if ($addCategory.length > 0 && $panel.find('.category').length == 0) {
                     $addCategory.click();
+                    $panel.find('.category input[name=name]').val(self.options.i18n.categoryNameByDefault)
                 }
 
                 var $addField = $panel.find('.add_field');
@@ -253,9 +255,20 @@ $.widget("nos.appwizard", {
         var $categoryContent = $(self.options.templates['category']);
         $categoriesList.append($categoryContent);
         self.processDom($categoryContent);
-        $categoryContent.find('.category_name').keyup(function(e) {
-            e.preventDefault();
-            self.refreshCategories($(this));
+        $categoryContent.find('.category_name').on({
+            keyup: function(e) {
+                var $input = $(this);
+                e.preventDefault();
+                self.refreshCategories($input);
+            },
+            blur: function(e) {
+                var $input = $(this);
+                e.preventDefault();
+                if (!$.trim($input.val())) {
+                    $input.val(self.options.i18n.categoryNameByDefault);
+                    self.refreshCategories($input);
+                }
+            }
         });
     },
 
@@ -337,9 +350,10 @@ $.widget("nos.appwizard", {
         var $form = $el.closest('.field_layout, .fields');
         var formId = $form.data('modelId');
         var $categoriesName = $('#field_layout_' + formId).find('.categories_list .category_name');
+        var $categoriesType = $('#field_layout_' + formId).find('.categories_list select');
         var options = '';
         $categoriesName.each(function(i) {
-            options += '<option value="' + i + '">' + $(this).val() + '</option>';
+            options += '<option value="' + i + '">' + $(this).val() + ' (' + $categoriesType.eq(i).find(':selected').text() + ')</option>';
         });
 
         var $categorySelects = $('#fields_' + formId).find('.model_fields_list .category_type');
@@ -348,7 +362,9 @@ $.widget("nos.appwizard", {
             var $this = $(this);
             var previousVal = $this.val();
             $this.html(options);
-            $this.val(previousVal);
+            if (previousVal) {
+                $this.val(previousVal);
+            }
         });
     },
 
