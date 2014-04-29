@@ -79,8 +79,17 @@ if (!empty($model['has_publishable_behaviour'])) {
             throw new \Nos\NotFoundException();
         }
 
-        $this->main_controller->setTitle($<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
-        //$this->main_controller->setMetaDescription($<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>);
+        $title = $<?= strtolower($model['name']) ?>-><?= $model['column_prefix'] ?><?= $model['title_column_name'] ?>;
+        $this->main_controller->setItemDisplayed(
+            $<?= strtolower($model['name']) ?>,
+            array(
+                //'meta_description' => $title,
+                //'meta_keywords' => '',
+            ),
+            array(
+                'title' => ':page_title - '.$title,
+            )
+        );
 
         return \View::forge('front/<?= strtolower($model['name']) ?>_item', array(
             '<?= strtolower($model['name']) ?>' => $<?= strtolower($model['name']) ?>,
