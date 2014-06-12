@@ -6,7 +6,7 @@ The ‘Build your app’ wizard is to easily and quickly build a Novius OS appli
 
 ## Requirements
 
-* The ‘Build your app’ wizard runs on Novius OS Dubrovka.
+* The ‘Build your app’ wizard runs on Novius OS Elche.
 * ‘local/applications’ directory must be writeable.
 
 ## Installation
