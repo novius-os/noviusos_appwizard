@@ -10,7 +10,7 @@
 
 return array(
     'name'    => '‘Build your app’ wizard',
-    'version' => '5.0 (Elche)',
+    'version' => '5.0.1 (Elche)',
     'provider' => array(
         'name' => 'Novius OS',
     ),
