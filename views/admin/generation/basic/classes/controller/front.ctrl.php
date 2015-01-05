@@ -61,7 +61,7 @@ if (!empty($model['has_publishable_behaviour'])) {
 
         $<?= strtolower($model['name']) ?>_list =  Model_<?= $model['name'] ?>::find('all', $params);
 
-        return \View::forge('front/<?= strtolower($model['name']) ?>_list', array(
+        return \View::forge('<?= $data['application_settings']['folder'] ?>::front/<?= strtolower($model['name']) ?>_list', array(
             '<?= strtolower($model['name']) ?>_list' => $<?= strtolower($model['name']) ?>_list,
         ), false);
     }
@@ -91,7 +91,7 @@ if (!empty($model['has_publishable_behaviour'])) {
             )
         );
 
-        return \View::forge('front/<?= strtolower($model['name']) ?>_item', array(
+        return \View::forge('<?= $data['application_settings']['folder'] ?>::front/<?= strtolower($model['name']) ?>_item', array(
             '<?= strtolower($model['name']) ?>' => $<?= strtolower($model['name']) ?>,
         ), false);
     }
