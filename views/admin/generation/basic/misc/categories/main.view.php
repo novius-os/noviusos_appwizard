@@ -15,7 +15,7 @@
         'title'   => __(<?= var_export($category['name']) ?>),
         'nomargin' => true,
         'options' => array(
-            'allowExpand' => false,
+            'allowExpand' => true,
         ),
         'content' => array(
             'view' => 'nos::form/fields',
