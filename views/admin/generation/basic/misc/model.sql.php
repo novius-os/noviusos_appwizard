@@ -56,5 +56,9 @@ if (isset($model['has_author_behaviour'])) {
     `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`<?= $model['column_prefix'] ?>id`),
     KEY `<?= $model['column_prefix'] ?>created_at` (`<?= $model['column_prefix'] ?>created_at`),
-    KEY `<?= $model['column_prefix'] ?>updated_at` (`<?= $model['column_prefix'] ?>updated_at`)
+    KEY `<?= $model['column_prefix'] ?>updated_at` (`<?= $model['column_prefix'] ?>updated_at`)<?= isset($model['has_twinnable_behaviour']) ? ",\n" : '' ?>
+<?php if (isset($model['has_twinnable_behaviour'])) {
+    echo '    KEY`'.$model['column_prefix'].'context` (`'.$model['column_prefix'].'context_common_id`, `'.$model['column_prefix'].'context`)';
+} ?>
+
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
