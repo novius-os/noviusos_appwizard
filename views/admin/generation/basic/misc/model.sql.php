@@ -52,7 +52,7 @@ if (isset($model['has_author_behaviour'])) {
 }
 
 ?>
-    `<?= $model['column_prefix'] ?>created_at` timestamp NULL,
+    `<?= $model['column_prefix'] ?>created_at` timestamp NULL DEFAULT NULL,
     `<?= $model['column_prefix'] ?>updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`<?= $model['column_prefix'] ?>id`),
 <?php
