@@ -9,4 +9,4 @@
  */
 
 ?>
-`<?= $model['column_prefix'].$field['column_name'] ?>` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+`<?= $model['column_prefix'].$field['column_name'] ?>` timestamp NULL DEFAULT NULL,

@@ -52,8 +52,8 @@ if (isset($model['has_author_behaviour'])) {
 }
 
 ?>
-    `<?= $model['column_prefix'] ?>created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-    `<?= $model['column_prefix'] ?>updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `<?= $model['column_prefix'] ?>created_at` timestamp NULL DEFAULT NULL,
+    `<?= $model['column_prefix'] ?>updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`<?= $model['column_prefix'] ?>id`),
 <?php
 if (isset($model['has_twinnable_behaviour'])) {
